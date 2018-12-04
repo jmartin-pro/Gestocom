@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1> Ajout d'une habitation</h1>
+
+<h1> Modification information de l'adresse</h1>
+
+{{ form_start(formHabitation) }}
+{{form_row(formHabitation.adresse,{'attr' : {'placeholder' : "Adresse de l'habitation"}} ) }}
+{{form_row(formHabitation.copos,{'attr' : {'placeholder' : "Code postal de l'habitation"}} ) }}
+{{form_row(formHabitation.ville,{'attr' : {'placeholder' : "Ville de l'habitation"}} ) }}
+{{form_row(formHabitation.usager) }}
+
+<button type="submit" class="btn btn-success">Valider</button>
+
+{{ form_end(formHabitation) }}
+
+{% endblock %}

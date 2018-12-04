@@ -1,12 +1,30 @@
+#Accueil
 index:
     path: /
     controller: App\Controller\AccueilController::indexAction
+    
+#Authentification 
+connexion:
+    path: /connexion
+    controller: App\Controller\AuthentificationController::connexionAction
+    
+deconnexion:
+    path: /deconnexion
+    controller: App\Controller\AuthentificationController::deconnexionAction
 
-#Gérer habitation
+#Habitation
 
 listerHabitation:
     path: /habitation/lister
     controller : App\Controller\HabitationController::listerHabitation
+
+ajouterHabitation:
+    path: /habitation/ajouter
+    controller : App\Controller\HabitationController::ajouterHabitation
+
+consulterHabitation:
+    path: /habitation/consulter
+    controller : App\Controller\HabitationController::ajouterHabitation
  
 #Mentions Legales
 
