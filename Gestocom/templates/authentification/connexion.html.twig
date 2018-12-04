@@ -5,11 +5,9 @@
 {% block body %}
 	<div class="row">
 		<div class="col s12">
-			{% if user is not null%}
-				<p>Bienvenue{{" " ~ user.nom ~ " " ~ user.prenom }}!!</p>
-			{% else %}
-				<p>Bienvenue!!</p>
-			{% endif %}
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
 		</div>
 	</div>
 {% endblock %}
