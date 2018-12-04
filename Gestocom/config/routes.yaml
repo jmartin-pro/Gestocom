@@ -17,6 +17,14 @@ deconnexion:
 listerHabitation:
     path: /habitation/lister
     controller : App\Controller\HabitationController::listerHabitation
+
+ajouterHabitation:
+    path: /habitation/ajouter
+    controller : App\Controller\HabitationController::ajouterHabitation
+
+consulterHabitation:
+    path: /habitation/consulter
+    controller : App\Controller\HabitationController::ajouterHabitation
  
 #Mentions Legales
 
