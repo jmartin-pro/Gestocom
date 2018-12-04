@@ -10,6 +10,10 @@ use App\Entity\Compte;
 class AuthentificationController extends AbstractController {
 
 	public function connexionAction(Request $request) {
+		if ($request->getSession()->get("user") != null) {
+			return $this->redirectToRoute("index");
+		}
+
 		$compte = new Compte();
 		$form = $this->createForm(AuthentificationType::class, $compte);
 		$form->handleRequest($request);
@@ -18,7 +22,7 @@ class AuthentificationController extends AbstractController {
 			$compte = $form->getData();
 			$compteBdd = $this->getDoctrine()->getRepository(Compte::class)->findOneByLogin($compte->getLogin());
 
-			if($compteBdd != null && hash("sha256", $compte->getMdp()) == $compteBdd->getMdp()) {
+			if ($compteBdd != null && hash("sha256", $compte->getMdp()) == $compteBdd->getMdp()) {
 				$request->getSession()->set("user", $compteBdd->getUtilisateur());
 				return $this->redirectToRoute("index");
 			}
