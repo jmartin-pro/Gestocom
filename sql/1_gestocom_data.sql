@@ -1,79 +1,63 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Jeu 22 novembre 2018 à 23:53
--- Version du serveur :  5.6.17-log
--- Version de PHP :  5.5.12
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+INSERT INTO `tarif` (`id`, `type_dechet_id`, `date`, `tarif`) VALUES
+(1, 1, '2018-01-01', 0.1508),
+(2, 2, '2018-01-01', 0.0802),
+(3, 3, '2018-01-01', 0.0614);
+
+INSERT INTO `type_dechet` (`id`, `libelle`) VALUES
+(1, 'déchets classiques'),
+(2, 'déchets recyclables'),
+(3, 'déchets en verre');
 
 
---
--- Base de données :  `gestocom`
---
-
---
--- Contenu de la table `typedechet`
---
-
-INSERT INTO `typedechet` (`TDEC_CODE`, `TDEC_LIBELLE`, `TDEC_TARIF`) VALUES('C', 'déchets classiques', '0.15080');
-INSERT INTO `typedechet` (`TDEC_CODE`, `TDEC_LIBELLE`, `TDEC_TARIF`) VALUES('R', 'déchets recyclables', '0.08020');
-INSERT INTO `typedechet` (`TDEC_CODE`, `TDEC_LIBELLE`, `TDEC_TARIF`) VALUES('V', 'déchets en verre', '0.06140');
-
---
--- Contenu de la table `usager`
---
-
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(1, 'Deltour', 'Charles', '4 rue du Pont', 'Le Bourg', '14680', 'Bretteville Sur Laize', 'cdeltour@hotmail.com');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(2, 'Fime', 'Nadia', '5 rue du Montparnasse', 'Les mines', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(3, 'Ertau', 'Frank', '4 Avenue du président Wilson', '', '14190', 'Urville', 'frank.ertau@laposte.net');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(4, 'Maneur', 'David', '6 rue Charles Péguy', 'Le Drollet', '14220', 'Mutrécy', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(5, 'Berezovski', 'Sylvie', '18 rue du Château', '', '14680', 'Barbery', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(6, 'Finley', 'Pascale', '25 rue de Tolbiac', '', '14680', 'Caillouet', 'pascfinley@yahoo.fr');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(7, 'Vofur', 'Hector', '18 rue Deparcieux', '', '14190', 'Cauvicourt', 'hvofur@free.fr');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(8, 'Derzou', 'Fred', '230 avenue de la libert', '', '14220', 'Espins', 'ouzala@aol.com');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(9, 'Serty', 'Julie', '23 rue du Calvaire', '', '14220', 'Fresney le Vieux', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(10, 'Vofur', 'Victor', '18 rue Deparcieux', 'Le Bourg', '14680', 'Bretteville Sur Laize', 'victor.vofur@laposte.net');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(11, 'Calende', 'Hugo', '22 rue des jardins', '', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(12, 'Jemba', 'Hubert', '10 rue du 8 mai 1945', '', '14680', 'Bretteville Sur Laize', 'jaimeba@yahoo.fr');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(13, 'Morin', 'S?verine', '4 rue du bac', 'La Butte', '93000', 'Gouvix', 'morinsev@hotmail.com');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(14, 'Benrech', 'Tarek', '79 rue de Caen', '', '14320', 'May Sur Orne', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(15, 'Nguyen', 'Marc', '53 impasse Tourneur', '', '14320', 'Fontenay Le Marmion', 'nguyen774@wanadoo.fr');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(16, 'Louali', 'Karima', '89 avenue Poincar', '', '14320', 'Saint Martin de Fontenay', 'kloua@caramail.fr');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(17, 'Paolo', 'Marco', '14 rue du Caire', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(18, 'Map', 'Joanna', '120 boulevard Voltaire', '', '75012', 'Paris', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(19, 'Kound', 'Fatoumata', '4 Place Carr', '', '14190', 'Urville', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(20, 'Derissam', 'Bachir', '1 rue des Indes', '', '14190', 'Urville', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(21, 'Villechalane', 'Louis', '8 rue des Charmes', 'Lotissement Caroline', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(22, 'Andre', 'David', '1 rue Petit', '', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(23, 'Bedos', 'Christian', '1 rue Peranud', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(24, 'Tusseau', 'Louis', '22 rue des Ternes', '', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(25, 'Bentot', 'Pascal', '11 allée des Cerises', '', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(26, 'Bioret', 'Luc', '1 Avenue gambetta', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(27, 'Bunisset', 'Francis', '10 rue des Perles', '', '14220', 'Espins', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(28, 'Bunisset', 'Denise', '23 rue Manin', '', '14320', 'Saint Martin de Fontenay', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(29, 'Cacheux', 'Bernard', '114 rue Blanche', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(30, 'Cadic', 'Eric', '123 avenue de la République', 'Le Bourg', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(31, 'Charoze', 'Catherine', '100 rue Petit', '', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(32, 'Clepkens', 'Christophe', '12 allée des Anges', '', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(33, 'Cottin', 'Vincenne', '36 rue Des Roches', '', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(34, 'Daburon', 'François', '13 rue de Chanzy', '', '14220', 'Mutrécy', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(35, 'De', 'Philippe', '13 rue Barthes', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(36, 'Debelle', 'Michel', '181 avenue Barbusse', '', '14220', 'Espins', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(37, 'Debelle', 'Jeanne', '134 allée des Joncs', '', '14320', 'Saint Martin de Fontenay', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(38, 'Debroise', 'Michel', '2 Bld Jourdain', 'Le Bourg', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(39, 'Desmarquest', 'Nathalie', '14 Place d Arc', '', '14220', 'Boulon', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(40, 'Desnost', 'Pierre', '16 avenue des Cèdres', 'Le Drollet', '14220', 'Mutrécy', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(41, 'Dudouit', 'Frédéric', '18 rue de l église', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(42, 'Duncombe', 'Claude', '19 rue de la tour', '', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(43, 'Enault-Pascreau', 'Céline', '25 place de la gare', '', '14680', 'Bretteville Sur Laize', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(44, 'Eynde', 'Valérie', '3 Grand Place', '', '14220', 'Mutrécy', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(45, 'Finck', 'Jacques', '10 avenue du Prado', '', '14320', 'Fontenay Le Marmion', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(46, 'Frémont', 'Fernande', '4 route de la mer', '', '14220', 'Espins', '');
-INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES(47, 'Gest', 'Alain', '30 avenue des terres', '', '14320', 'Saint Martin de Fontenay', '');
+INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_ADRESSE2`, `USG_COPOS`, `USG_VILLE`, `USG_MAIL`) VALUES
+(1, 'Deltour', 'Charles', '4 rue du Pont', 'Le Bourg', '14680', 'Bretteville Sur Laize', 'cdeltour@hotmail.com'),
+(2, 'Fime', 'Nadia', '5 rue du Montparnasse', 'Les mines', '14220', 'Boulon', ''),
+(3, 'Ertau', 'Frank', '4 Avenue du président Wilson', '', '14190', 'Urville', 'frank.ertau@laposte.net'),
+(4, 'Maneur', 'David', '6 rue Charles Péguy', 'Le Drollet', '14220', 'Mutrécy', ''),
+(5, 'Berezovski', 'Sylvie', '18 rue du Château', '', '14680', 'Barbery', ''),
+(6, 'Finley', 'Pascale', '25 rue de Tolbiac', '', '14680', 'Caillouet', 'pascfinley@yahoo.fr'),
+(7, 'Vofur', 'Hector', '18 rue Deparcieux', '', '14190', 'Cauvicourt', 'hvofur@free.fr'),
+(8, 'Derzou', 'Fred', '230 avenue de la libert', '', '14220', 'Espins', 'ouzala@aol.com'),
+(9, 'Serty', 'Julie', '23 rue du Calvaire', '', '14220', 'Fresney le Vieux', ''),
+(10, 'Vofur', 'Victor', '18 rue Deparcieux', 'Le Bourg', '14680', 'Bretteville Sur Laize', 'victor.vofur@laposte.net'),
+(11, 'Calende', 'Hugo', '22 rue des jardins', '', '14680', 'Bretteville Sur Laize', ''),
+(12, 'Jemba', 'Hubert', '10 rue du 8 mai 1945', '', '14680', 'Bretteville Sur Laize', 'jaimeba@yahoo.fr'),
+(13, 'Morin', 'S?verine', '4 rue du bac', 'La Butte', '93000', 'Gouvix', 'morinsev@hotmail.com'),
+(14, 'Benrech', 'Tarek', '79 rue de Caen', '', '14320', 'May Sur Orne', ''),
+(15, 'Nguyen', 'Marc', '53 impasse Tourneur', '', '14320', 'Fontenay Le Marmion', 'nguyen774@wanadoo.fr'),
+(16, 'Louali', 'Karima', '89 avenue Poincar', '', '14320', 'Saint Martin de Fontenay', 'kloua@caramail.fr'),
+(17, 'Paolo', 'Marco', '14 rue du Caire', '', '14320', 'Fontenay Le Marmion', ''),
+(18, 'Map', 'Joanna', '120 boulevard Voltaire', '', '75012', 'Paris', ''),
+(19, 'Kound', 'Fatoumata', '4 Place Carr', '', '14190', 'Urville', ''),
+(20, 'Derissam', 'Bachir', '1 rue des Indes', '', '14190', 'Urville', ''),
+(21, 'Villechalane', 'Louis', '8 rue des Charmes', 'Lotissement Caroline', '14680', 'Bretteville Sur Laize', ''),
+(22, 'Andre', 'David', '1 rue Petit', '', '14220', 'Boulon', ''),
+(23, 'Bedos', 'Christian', '1 rue Peranud', '', '14320', 'Fontenay Le Marmion', ''),
+(24, 'Tusseau', 'Louis', '22 rue des Ternes', '', '14680', 'Bretteville Sur Laize', ''),
+(25, 'Bentot', 'Pascal', '11 allée des Cerises', '', '14220', 'Boulon', ''),
+(26, 'Bioret', 'Luc', '1 Avenue gambetta', '', '14320', 'Fontenay Le Marmion', ''),
+(27, 'Bunisset', 'Francis', '10 rue des Perles', '', '14220', 'Espins', ''),
+(28, 'Bunisset', 'Denise', '23 rue Manin', '', '14320', 'Saint Martin de Fontenay', ''),
+(29, 'Cacheux', 'Bernard', '114 rue Blanche', '', '14320', 'Fontenay Le Marmion', ''),
+(30, 'Cadic', 'Eric', '123 avenue de la République', 'Le Bourg', '14680', 'Bretteville Sur Laize', ''),
+(31, 'Charoze', 'Catherine', '100 rue Petit', '', '14220', 'Boulon', ''),
+(32, 'Clepkens', 'Christophe', '12 allée des Anges', '', '14680', 'Bretteville Sur Laize', ''),
+(33, 'Cottin', 'Vincenne', '36 rue Des Roches', '', '14220', 'Boulon', ''),
+(34, 'Daburon', 'François', '13 rue de Chanzy', '', '14220', 'Mutrécy', ''),
+(35, 'De', 'Philippe', '13 rue Barthes', '', '14320', 'Fontenay Le Marmion', ''),
+(36, 'Debelle', 'Michel', '181 avenue Barbusse', '', '14220', 'Espins', ''),
+(37, 'Debelle', 'Jeanne', '134 allée des Joncs', '', '14320', 'Saint Martin de Fontenay', ''),
+(38, 'Debroise', 'Michel', '2 Bld Jourdain', 'Le Bourg', '14680', 'Bretteville Sur Laize', ''),
+(39, 'Desmarquest', 'Nathalie', '14 Place d Arc', '', '14220', 'Boulon', ''),
+(40, 'Desnost', 'Pierre', '16 avenue des Cèdres', 'Le Drollet', '14220', 'Mutrécy', ''),
+(41, 'Dudouit', 'Frédéric', '18 rue de l église', '', '14320', 'Fontenay Le Marmion', ''),
+(42, 'Duncombe', 'Claude', '19 rue de la tour', '', '14680', 'Bretteville Sur Laize', ''),
+(43, 'Enault-Pascreau', 'Céline', '25 place de la gare', '', '14680', 'Bretteville Sur Laize', ''),
+(44, 'Eynde', 'Valérie', '3 Grand Place', '', '14220', 'Mutrécy', ''),
+(45, 'Finck', 'Jacques', '10 avenue du Prado', '', '14320', 'Fontenay Le Marmion', ''),
+(46, 'Frémont', 'Fernande', '4 route de la mer', '', '14220', 'Espins', ''),
+(47, 'Gest', 'Alain', '30 avenue des terres', '', '14320', 'Saint Martin de Fontenay', '');
 
 
 
@@ -81,58 +65,59 @@ INSERT INTO `usager` (`USG_ID`, `USG_NOM`, `USG_PRENOM`, `USG_ADRESSE1`, `USG_AD
 -- Contenu de la table `habitation`
 --
 
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(61, '1 rue Peranud', '', '14320', 'Fontenay Le Marmion', 23);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(470, '5 rue du pont du Coudray', 'Le Bourg', '14680', 'Mutrécy', 17);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(556, '22 rue des Ternes', '', '14680', 'Bretteville Sur Laize', 24);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(630, '23 rue Manin', '', '14320', 'Saint Martin de Fontenay', 28);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(669, '4 rue du bac', 'La Butte', '93000', 'Gouvix', 13);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(732, '23 rue du Calvaire', '', '14220', 'Fresney le Vieux', 9);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(767, '18 rue de l''église', '', '14320', 'Fontenay Le Marmion', 41);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(882, '25 rue de Tolbiac', '', '14680', 'Caillouet', 6);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1160, '1 rue des Indes', '', '14190', 'Urville', 20);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1246, '13 rue de Chanzy', '', '14220', 'Mutrécy', 34);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1334, '4 route de la mer', '', '14220', 'Espins', 46);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1429, '77 rue des marais', 'B?timent Olympia', '14680', 'Bretteville Sur Laize', 3);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1434, '4 Place Carré', '', '14190', 'Urville', 19);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1575, '114 rue Blanche', '', '14320', 'Fontenay Le Marmion', 29);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1611, '3 Grand Place', '', '14220', 'Mutrécy', 44);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1702, '18 rue Deparcieux', '', '14190', 'Cauvicourt', 7);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1758, '16 avenue des Cèdres', 'Le Drollet', '14220', 'Mutrécy', 40);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1761, '22 rue des jardins', '', '14680', 'Bretteville Sur Laize', 11);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(1996, '10 rue des Perles', '', '14220', 'Espins', 27);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2127, '79 rue de Caen', '', '14320', 'May Sur Orne', 14);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2133, '8 rue des Charmes', 'Lotissement Caroline', '14680', 'Bretteville Sur Laize', 21);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2222, '7 ter petits foss', '', '14190', 'Saint Germain le Vasson', 31);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2272, '18 rue Deparcieux', 'Le Bourg', '14680', 'Bretteville Sur Laize', 10);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2349, '19 rue de la tour', '', '14680', 'Bretteville Sur Laize', 42);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2453, '4 Avenue du président Wilson', '', '14190', 'Urville', 3);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2733, '89 avenue Poincar', '', '14320', 'Saint Martin de Fontenay', 16);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(2959, '100 rue Petit', '', '14220', 'Boulon', 31);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3116, '181 avenue Barbusse', '', '14220', 'Espins', 36);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3221, '25 place de la gare', '', '14680', 'Bretteville Sur Laize', 43);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3254, '123 avenue de la République', 'Le Bourg', '14680', 'Bretteville Sur Laize', 30);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3259, '10 avenue du Prado', '', '14320', 'Fontenay Le Marmion', 45);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3404, '13 rue Barthes', '', '14320', 'Fontenay Le Marmion', 35);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3449, '5 rue du Montparnasse', 'Les mines', '14220', 'Boulon', 2);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3567, '11 allée des Cerises', '', '14220', 'Boulon', 25);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3610, '36 rue Des Roches', '', '14220', 'Boulon', 33);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3655, '10 rue du 8 mai 1945', '', '14680', 'Bretteville Sur Laize', 12);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3694, '20 rue du Château', '', '14680', 'Barbery', 5);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3769, '230 avenue de la liberté', '', '14220', 'Espins', 8);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3786, '14 Place d''Arc', '', '14220', 'Boulon', 39);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3814, '22 rue du Chateau', '', '14680', 'Barbery', 5);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(3898, '18 rue du Château', '', '14680', 'Barbery', 5);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4059, '1 rue Petit', '', '14220', 'Boulon', 22);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4105, '14 rue du Caire', '', '14320', 'Fontenay Le Marmion', 17);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4135, '6 rue Charles Péguy', 'Le Drollet', '14220', 'Mutrécy', 4);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4250, '30 avenue des terres', '', '14320', 'Saint Martin de Fontenay', 47);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4272, '1 Avenue gambetta', '', '14320', 'Fontenay Le Marmion', 26);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4292, '120 boulevard Voltaire', '', '75012', 'Paris', 18);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4391, '4 rue du Pont', 'Le Bourg', '14680', 'Bretteville Sur Laize', 1);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4393, '12 allée des Anges', '', '14680', 'Bretteville Sur Laize', 32);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4613, '53 impasse Tourneur', '', '14320', 'Fontenay Le Marmion', 15);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4783, '134 allée des Joncs', '', '14320', 'Saint Martin de Fontenay', 37);
-INSERT INTO `habitation` (`HAB_ID`, `HAB_ADRESSE1`, `HAB_ADRESSE2`, `HAB_COPOS`, `HAB_VILLE`, `HAB_USAGER`) VALUES(4976, '2 Bld Jourdain', 'Le Bourg', '14680', 'Bretteville Sur Laize', 38);
+INSERT INTO `habitation` (id, adresse, copos, ville, usager_id) VALUES
+(61, '1 rue Peranud', '14320', 'Fontenay Le Marmion', 23),
+(470, '5 rue du pont du Coudray Le Bourg', '14680', 'Mutrécy', 17),
+(556, '22 rue des Ternes', '14680', 'Bretteville Sur Laize', 24),
+(630, '23 rue Manin', '14320', 'Saint Martin de Fontenay', 28),
+(669, '4 rue du bac La Butte', '93000', 'Gouvix', 13),
+(732, '23 rue du Calvaire', '14220', 'Fresney le Vieux', 9),
+(767, '18 rue de l''église', '14320', 'Fontenay Le Marmion', 41),
+(882, '25 rue de Tolbiac', '14680', 'Caillouet', 6),
+(1160, '1 rue des Indes', '14190', 'Urville', 20),
+(1246, '13 rue de Chanzy', '14220', 'Mutrécy', 34),
+(1334, '4 route de la mer', '14220', 'Espins', 46),
+(1429, '77 rue des marais Bâtiment Olympia', '14680', 'Bretteville Sur Laize', 3),
+(1434, '4 Place Carré', '14190', 'Urville', 19),
+(1575, '114 rue Blanche', '14320', 'Fontenay Le Marmion', 29),
+(1611, '3 Grand Place', '14220', 'Mutrécy', 44),
+(1702, '18 rue Deparcieux', '14190', 'Cauvicourt', 7),
+(1758, '16 avenue des Cèdres Le Drollet', '14220', 'Mutrécy', 40),
+(1761, '22 rue des jardins', '14680', 'Bretteville Sur Laize', 11),
+(1996, '10 rue des Perles', '14220', 'Espins', 27),
+(2127, '79 rue de Caen', '14320', 'May Sur Orne', 14),
+(2133, '8 rue des Charmes Lotissement Caroline', '14680', 'Bretteville Sur Laize', 21),
+(2222, '7 ter petits foss', '14190', 'Saint Germain le Vasson', 31),
+(2272, '18 rue Deparcieux Le Bourg', '14680', 'Bretteville Sur Laize', 10),
+(2349, '19 rue de la tour', '14680', 'Bretteville Sur Laize', 42),
+(2453, '4 Avenue du président Wilson', '14190', 'Urville', 3),
+(2733, '89 avenue Poincar', '14320', 'Saint Martin de Fontenay', 16),
+(2959, '100 rue Petit', '14220', 'Boulon', 31),
+(3116, '181 avenue Barbusse', '14220', 'Espins', 36),
+(3221, '25 place de la gare', '14680', 'Bretteville Sur Laize', 43),
+(3254, '123 avenue de la République Le Bourg', '14680', 'Bretteville Sur Laize', 30),
+(3259, '10 avenue du Prado', '14320', 'Fontenay Le Marmion', 45),
+(3404, '13 rue Barthes', '14320', 'Fontenay Le Marmion', 35),
+(3449, '5 rue du Montparnasse Les mines', '14220', 'Boulon', 2),
+(3567, '11 allée des Cerises', '14220', 'Boulon', 25),
+(3610, '36 rue Des Roches', '14220', 'Boulon', 33),
+(3655, '10 rue du 8 mai 1945', '14680', 'Bretteville Sur Laize', 12),
+(3694, '20 rue du Château', '14680', 'Barbery', 5),
+(3769, '230 avenue de la liberté', '14220', 'Espins', 8),
+(3786, '14 Place d''Arc', '14220', 'Boulon', 39),
+(3814, '22 rue du Chateau', '14680', 'Barbery', 5),
+(3898, '18 rue du Château', '14680', 'Barbery', 5),
+(4059, '1 rue Petit', '14220', 'Boulon', 22),
+(4105, '14 rue du Caire', '14320', 'Fontenay Le Marmion', 17),
+(4135, '6 rue Charles Péguy Le Drollet', '14220', 'Mutrécy', 4),
+(4250, '30 avenue des terres', '14320', 'Saint Martin de Fontenay', 47),
+(4272, '1 Avenue gambetta', '14320', 'Fontenay Le Marmion', 26),
+(4292, '120 boulevard Voltaire', '75012', 'Paris', 18),
+(4391, '4 rue du Pont Le Bourg', '14680', 'Bretteville Sur Laize', 1),
+(4393, '12 allée des Anges', '14680', 'Bretteville Sur Laize', 32),
+(4613, '53 impasse Tourneur', '14320', 'Fontenay Le Marmion', 15),
+(4783, '134 allée des Joncs', '14320', 'Saint Martin de Fontenay', 37),
+(4976, '2 Bld Jourdain Le Bourg', '14680', 'Bretteville Sur Laize', 38);
 
 --
 -- Contenu de la table `container`
