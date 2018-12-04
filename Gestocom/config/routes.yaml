@@ -4,10 +4,6 @@ index:
 
 #Gérer habitation
 
-indexHabitation:
-    path: /habitation
-    controller: App\Controller\HabitationController::index
-
 listerHabitation:
     path: /habitation/lister
     controller : App\Controller\HabitationController::listerHabitation

@@ -14,14 +14,6 @@ class HabitationController extends AbstractController
      * @Route("/habitation", name="habitation")
      */
 
-    public function index()
-    {
-        return $this->render('habitation/index.html.twig', [
-            'controller_name' => 'habitationController',
-        ]);
-
-    }
-      
     public function listerHabitation()
     {
         $repository = $this->getDoctrine()->getRepository(Habitation::class);

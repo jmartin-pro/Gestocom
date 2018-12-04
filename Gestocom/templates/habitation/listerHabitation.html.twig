@@ -1,29 +1,29 @@
-{% extends 'base.html.twig' %}
+{% extends '/base.html.twig' %}
 
+{% block title %}Les habitations{% endblock %}
 
 {% block body %}
 
-<h5> Consultation des habitation</h5>
+	<h5 class="center-align"> Consultation des habitation</h5>
 
-<table>
-  <tr>
-    <td>Adresse : </td>
-    <td>Code postal : </td>
-    <td>Ville : </td>
+	<table>
+		<tr>
+			<td>Adresse : </td>
+			<td>Code postal : </td>
+			<td>Ville : </td>
+		</tr>
+		{% for habitation in listeHabitation %}
+			<tr>
+				<td> {% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
+				<td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
+				<td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
+			</tr>
 
-  </tr>
-  {% for habitation in listeHabitation %}
-  <tr>
-    <td> {% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
-    <td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
-    <td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
-  </tr>
+		{% else %}
+			<tr>
+				<td>Aucune habitation n'a été trouvée.</td>
+			</tr>
 
-  {% else %}
-  <tr>
-    <td>Aucune habitation n'a été trouvée.</td>
-  </tr>
-
-  {% endfor %}
-  </table>
+		{% endfor %}
+	</table>
 {% endblock %}
