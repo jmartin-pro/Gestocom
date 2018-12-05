@@ -38,7 +38,7 @@ L’application doit permettre aux usagers de consulter leurs factures dès que 
 
 - [Symfony 4](https://symfony.com/)
 - [jQuery](https://jquery.com/)
-- [Materialize](https://materializecss.com/)
+- [Bootstrap](http://getbootstrap.com/)
 
 # Collaborateurs
 

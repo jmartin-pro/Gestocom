@@ -5,8 +5,9 @@
         <meta charset="UTF-8">
         <title>Gestocom - {% block title %}La gestion de vos poubelles facile{% endblock %}</title>
 		
+		<link type="text/css" rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset("css/google_font.css") }}"/>
 
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		{% block stylesheets %}{% endblock %}
     </head>
@@ -18,5 +19,6 @@
 		
         {% block javascripts %}{% endblock %}
 
+		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
     </body>
 </html>
