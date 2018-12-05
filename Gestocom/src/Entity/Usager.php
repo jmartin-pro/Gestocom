@@ -14,11 +14,6 @@ use App\Entity\Utilisateur;
 class Usager extends Utilisateur
 {
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $adresse;
@@ -57,11 +52,6 @@ class Usager extends Utilisateur
     {
         $this->reclamations = new ArrayCollection();
         $this->habitations = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getAdresse(): ?string

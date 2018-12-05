@@ -25,7 +25,12 @@ ajouterHabitation:
 consulterHabitation:
     path: /habitation/consulter
     controller : App\Controller\HabitationController::ajouterHabitation
- 
+
+#Levées Détail
+leveesDetail:
+    path : levees
+    controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
+
 #Mentions Legales
 
 mentionsLegales:

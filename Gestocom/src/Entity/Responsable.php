@@ -14,11 +14,6 @@ use App\Entity\Utilisateur;
 class Responsable extends Utilisateur
 {
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="responsable")
      */
     private $reponses;
@@ -26,11 +21,6 @@ class Responsable extends Utilisateur
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
