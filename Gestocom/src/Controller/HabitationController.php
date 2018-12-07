@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 
 use App\Form\HabitationType;
 use App\Entity\Habitation;
+use App\Entity\Usager;
 use App\Repository\HabitationRepository;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,35 +20,30 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class HabitationController extends AbstractController
 {
-    /**
-     * @Route("/habitation", name="habitation")
-     */
-
-    public function index()
-    {
-        return $this->render('habitation/index.html.twig', [
-            'controller_name' => 'habitationController',
-        ]);
-
-    }
      
-    public function consulterHabitation(Habitation $uneHabitation)
+    public function consulterHabitation($id)
     {
+        $repository = $this->getDoctrine()->getRepository(Habitation::class);
+        $uneHabitation = $repository->findOneById($id);
         return $this->render('habitation/consulterHabitation.html.twig', [
             'habitation' => $uneHabitation,]);
     }
 
+
     public function listerHabitation()
     {
+
         $repository = $this->getDoctrine()->getRepository(Habitation::class);
         $listeHabitation = $repository->findAll();
     
         return $this->render('habitation/listerHabitation.html.twig', [
                      'listeHabitation' => $listeHabitation
         ]);
+
     }
 
-    public function ajouterHabitation(Request $request){
+    public function ajouterHabitation(Request $request)
+    {
 
         $habitation = new habitation();
         $form = $this->createForm(HabitationType::class, $habitation);

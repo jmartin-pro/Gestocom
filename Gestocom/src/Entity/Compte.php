@@ -22,12 +22,12 @@ class Compte
     private $utilisateur;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $login;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=64)
      */
     private $mdp;
 

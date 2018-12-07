@@ -18,6 +18,18 @@ class LeveeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Levee::class);
     }
+    
+    public function findMoisEnCours() {
+		return $this->createQueryBuilder('levee')
+			->andWhere('levee.dateLevee BETWEEN :start AND :end')
+			->orderBy('levee.dateLevee', 'DESC')
+			->setParameter('start', new \Datetime(date('Y-m-').'1'))
+			->setParameter('end',   new \Datetime(date('Y-m-t')))
+			->getQuery()
+			->getResult()
+		;
+
+	}
 
     // /**
     //  * @return Levee[] Returns an array of Levee objects

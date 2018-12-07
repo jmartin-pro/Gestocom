@@ -1,12 +1,18 @@
+#Accueil
 index:
     path: /
     controller: App\Controller\AccueilController::indexAction
+    
+#Authentification 
+connexion:
+    path: /connexion
+    controller: App\Controller\AuthentificationController::connexionAction
+    
+deconnexion:
+    path: /deconnexion
+    controller: App\Controller\AuthentificationController::deconnexionAction
 
-#Gérer habitation
-
-indexHabitation:
-    path: /habitation
-    controller: App\Controller\HabitationController::index
+#Habitation
 
 listerHabitation:
     path: /habitation/lister
@@ -17,9 +23,14 @@ ajouterHabitation:
     controller : App\Controller\HabitationController::ajouterHabitation
 
 consulterHabitation:
-    path: /habitation/consulter
+
+    path: /habitation/consulter/{id}
     controller : App\Controller\HabitationController::consulterHabitation
  
+leveesDetail:
+    path : levees
+    controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
+
 #Mentions Legales
 
 mentionsLegales:
