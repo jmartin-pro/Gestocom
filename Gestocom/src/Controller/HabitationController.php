@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 
+use App\Form\HabitationModifierType;
 use App\Form\HabitationType;
 use App\Entity\Habitation;
 use App\Entity\Usager;
@@ -69,4 +70,33 @@ class HabitationController extends AbstractController
 
         }
     }
+
+    public function modifierHabitation($id, Request $request){
+
+        //récupération de l'étudiant dont l'id est passé en paramètre
+        $habitation = $this->getDoctrine()
+            ->getRepository(Habitation::class)
+            ->find($id);
+    
+        if (!$habitation) {
+            throw $this->createNotFoundException('Aucune habitation trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                $form = $this->createForm(HabitationModifierType::class, $habitation);
+                $form->handleRequest($request);
+    
+                if ($form->isSubmitted() && $form->isValid()) {
+    
+                     $habitation = $form->getData();
+                     $entityManager = $this->getDoctrine()->getManager();
+                     $entityManager->persist($habitation);
+                     $entityManager->flush();
+                     return $this->render('habitation/consulter.html.twig', ['habitation' => $habitation,]);
+               }
+               else{
+                    return $this->render('habitation/ajouter.html.twig', array('form' => $form->createView(),));
+               }
+            }
+     }
 }

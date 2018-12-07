@@ -23,10 +23,15 @@ ajouterHabitation:
     controller : App\Controller\HabitationController::ajouterHabitation
 
 consulterHabitation:
-
     path: /habitation/consulter/{id}
     controller : App\Controller\HabitationController::consulterHabitation
- 
+
+modifierHabitation:
+    path: /habitation/modifier/{id}
+    controller : App\Controller\HabitationController::modifierHabitation
+
+#levees
+
 leveesDetail:
     path : levees
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 

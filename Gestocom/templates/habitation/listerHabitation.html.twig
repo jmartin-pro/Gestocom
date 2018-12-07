@@ -21,6 +21,7 @@
     <td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
     <td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
     <td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>
+    <a href="{{ path('modifierHabitation',{'id':habitation.usager.id}) }}" >Modifier</a>
   </tr>
 
 
