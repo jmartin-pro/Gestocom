@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gestocom{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+		
+		LISTE DES COMPTES</br></br>
+		<table>
+		{% for c in pComptes %}
+		<tr>
+			<td><a href="{{ path('consulterCompte', { 'id': c.id }) }}">{{ c.login }}</a></td>
+			<td>****</a></td>
+	{% else %}
+		<tr>
+		<td>Aucun compte n'a été trouvé.</td>
+		</tr>
+	{% endfor %}
+</table>
+	 
+    </body>
+</html>
