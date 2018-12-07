@@ -15,7 +15,7 @@ deconnexion:
 #Habitation
 
 listerHabitation:
-    path: /habitation/lister
+    path: /habitation
     controller : App\Controller\HabitationController::listerHabitation
 
 ajouterHabitation:
@@ -23,8 +23,7 @@ ajouterHabitation:
     controller : App\Controller\HabitationController::ajouterHabitation
 
 consulterHabitation:
-
-    path: /habitation/consulter/{id}
+    path: /habitation/{id}
     controller : App\Controller\HabitationController::consulterHabitation
  
 leveesDetail:
