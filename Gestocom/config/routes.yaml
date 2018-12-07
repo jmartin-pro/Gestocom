@@ -44,6 +44,12 @@ consulterCatalogueLevees:
     path : /catalogueLevees
     controller : App\Controller\LeveesCatalogueController::consulterCatalogueLevees
 
+#Reclamation
+
+listerReclamations:
+    path: /reclamation
+    controller: App\Controller\ReclamationController::listerReclamations
+    
 #Mentions Legales
 
 mentionsLegales:

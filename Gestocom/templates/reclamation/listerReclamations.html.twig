@@ -1,0 +1,40 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Les reclamations{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s12">
+            <table class="table">
+                
+                <tr>
+                <td>Usager : </td>
+                <td>Objet : </td>
+                <td>Date Ouverture :</td>
+                <td>Date Fermeture :</td>
+                <td>Voir plus</td>
+            </tr>
+        
+        
+        {% for reclamation in listeReclamation %}
+			<tr>
+				<td> {% if reclamation.usager is defined %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
+                                <td> {% if reclamation.objet is defined %} {{reclamation.objet }}  {% endif %} </td>
+                                <td> {% if reclamation.dateOuv is defined %} {{reclamation.dateOuv | date("Y-m-d")}}  {% endif %} </td>
+                                <td> {% if reclamation.dateFerm is defined %} {{reclamation.dateFerm | date("Y-m-d")}}  {% endif %} </td>
+                                <td> Détail </td>
+			</tr>
+
+		{% else %}
+			<tr>
+				<td>Aucune réclamations n'a été trouvée.</td>
+			</tr>
+
+		{% endfor %}
+	</table>
+        </div>
+        
+        
+    </div>
+
+{% endblock %}
