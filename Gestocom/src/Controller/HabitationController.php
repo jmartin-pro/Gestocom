@@ -92,10 +92,10 @@ class HabitationController extends AbstractController
                      $entityManager = $this->getDoctrine()->getManager();
                      $entityManager->persist($habitation);
                      $entityManager->flush();
-                     return $this->render('habitation/consulter.html.twig', ['habitation' => $habitation,]);
+                     return $this->render('habitation/consulterhabitation.html.twig', ['habitation' => $habitation,]);
                }
                else{
-                    return $this->render('habitation/ajouter.html.twig', array('form' => $form->createView(),));
+                    return $this->render('habitation/ajouterHabitation.html.twig', array('formHabitation' => $form->createView(), "habitation" => $habitation,));
                }
             }
      }

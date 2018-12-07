@@ -26,9 +26,7 @@ class HabitationModifierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
        $builder
-            ->add('adresse', TextType::class, array('label' => 'adresse habitation', 'disabled'=> true))
-            ->add('enregistrer', SubmitType::class, array('label' => 'Modifier habitation'))
-             ;
+            ->add('usager',EntityType::class,array('class' => Usager::class, 'choice_label'=>'mail'));
 
     }
 
