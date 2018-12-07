@@ -26,6 +26,10 @@ consulterHabitation:
     path: /habitation/consulter/{id}
     controller : App\Controller\HabitationController::consulterHabitation
  
+leveesDetail:
+    path : levees
+    controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
+
 #Mentions Legales
 
 mentionsLegales:
