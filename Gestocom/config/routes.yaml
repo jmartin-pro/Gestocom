@@ -30,6 +30,12 @@ leveesDetail:
     path : levees
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
 
+#Reclamation
+
+listerReclamations:
+    path: /reclamation
+    controller: App\Controller\ReclamationController::listerReclamations
+    
 #Mentions Legales
 
 mentionsLegales:
