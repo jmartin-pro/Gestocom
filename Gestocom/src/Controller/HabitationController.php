@@ -30,7 +30,13 @@ class HabitationController extends AbstractController
         ]);
 
     }
-      
+     
+    public function consulterHabitation(Habitation $uneHabitation)
+    {
+        return $this->render('habitation/consulterHabitation.html.twig', [
+            'habitation' => $uneHabitation,]);
+    }
+
     public function listerHabitation()
     {
         $repository = $this->getDoctrine()->getRepository(Habitation::class);

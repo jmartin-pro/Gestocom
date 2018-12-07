@@ -15,7 +15,7 @@
   </tr>
   {% for habitation in listeHabitation %}
   <tr>
-    <td> {% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
+    <td> <a href="{{ path('consulterHabitation',{'id':habitation.usager.id}) }}">{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
     <td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
     <td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
     <td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>

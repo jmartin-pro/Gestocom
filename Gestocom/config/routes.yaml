@@ -18,7 +18,7 @@ ajouterHabitation:
 
 consulterHabitation:
     path: /habitation/consulter
-    controller : App\Controller\HabitationController::ajouterHabitation
+    controller : App\Controller\HabitationController::consulterHabitation
  
 #Mentions Legales
 
