@@ -3,12 +3,10 @@
 
 {% block body %}
 
-<h5> L'habitation de {{habitation.usager.prenom}} {{habitation.usager.nom}}</h5>
+<h3>L'habitation de {{habitation.usager.prenom}} {{habitation.usager.nom}}</h3>
 
-
-
-<table class="table table-hover">
-  <tr class="table-dark">
+<table class="table">
+  <tr>
     <td>Adresse</td>
     <td>Code Postal</td>
     <td>Ville</td>
@@ -16,10 +14,10 @@
     <td>Numéro de téléphone</td>
 
   </tr>
-  <tr class="table-warning">
-    <td>{{habitation.usager.adresse}}</td>
-    <td>{{habitation.usager.copos}}</td>
-    <td>{{habitation.usager.ville}}</td>
+  <tr>
+    <td>{{habitation.adresse}}</td>
+    <td>{{habitation.copos}}</td>
+    <td>{{habitation.ville}}</td>
     <td>{{habitation.usager.mail}}</td>
     <td>{{habitation.usager.tel}}</td>
   </tr>

@@ -27,7 +27,7 @@ class HabitationController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Habitation::class);
         $uneHabitation = $repository->findOneById($id);
         return $this->render('habitation/consulterHabitation.html.twig', [
-            'habitation' => $uneHabitation,]);
+            'habitation' => $uneHabitation]);
     }
 
 
@@ -100,3 +100,4 @@ class HabitationController extends AbstractController
             }
      }
 }
+

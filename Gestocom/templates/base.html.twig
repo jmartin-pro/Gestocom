@@ -8,11 +8,43 @@
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/google_font.css") }}"/>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		{% block stylesheets %}{% endblock %}
     </head>
 	
     <body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="{{ path('index') }}">
+				<img src="{{ asset("img/icon.png") }}" width="32" height="46" alt="">
+			</a>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ path('index') }}">Accueil <span class="sr-only">(current)</span></a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerHabitation') }}">Habitations</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('leveesDetail') }}">Mes levées</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 		<div class="container">
 			{% block body %}{% endblock %}
 		</div>
@@ -20,5 +52,7 @@
         {% block javascripts %}{% endblock %}
 
 		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("js/popper.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("js/jquery-3.2.1.slim.min.js") }}"></script>
     </body>
 </html>
