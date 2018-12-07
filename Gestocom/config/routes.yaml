@@ -24,7 +24,7 @@ ajouterHabitation:
 
 consulterHabitation:
     path: /habitation/consulter
-    controller : App\Controller\HabitationController::ajouterHabitation
+    controller : App\Controller\HabitationController::consulterHabitation
 
 #Levées Détail
 leveesDetail:
@@ -36,3 +36,25 @@ leveesDetail:
 mentionsLegales:
     path: /mentionsLegales
     controller: App\Controller\MentionLegalesController::pageMentionsLegales
+# Compte
+listerCompte:
+    path: /compte
+    controller: App\Controller\CompteController::listerCompte
+consulterCompte:
+    path: /compte/{id}
+    controller: App\Controller\CompteController::consulterCompte
+    requirements:
+        id: '\d+'
+ajouterCompte:
+    path: /compte/ajouter
+    controller: App\Controller\CompteController::ajouterCompte
+modifierCompte:
+    path: /compte/{id}/modifier
+    controller: App\Controller\CompteController::modifierCompte
+archiverCompte:
+    path: /compte/{id}/archiver
+    controller: App\Controller\CompteController::archiverCompte
+reinitMdpCompte:
+    path: /compte/{id}/reinitMdp
+    controller: App\Controller\CompteController::reinitMdpCompte
+# Usager

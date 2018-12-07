@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+		{% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+		
+		<h5>PAGE DE CONSULTATION D'UN COMPTE</h5>
+ <p>
+  <table >
+     <tr><td>Login : </td><td>{{compte.login}} </td></tr>
+	<tr><td>Mot de passe : </td><td>****</td></tr>
+	{% if compte.utilisateur != null %}
+	<tr><td>Utilisateur concerné : </td><td>{{compte.utilisateur.nom}} {{compte.utilisateur.prenom}}</td>
+    {% else %}
+		<tr><td>Pas d'utilisateur affilié</td></tr>
+	{% endif %}
+
+
+	</br>
+	</br>
+	
+    </body>
+</html>
