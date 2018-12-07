@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% if habitation.usager.mail is null %}
+{% if habitation.id is null %}
 <h1> Ajout d'une habitation</h1>
 {% else %}
 <h1> Modification information de l'adresse</h1>
@@ -13,7 +13,7 @@
 {{form_row(formHabitation.usager) }}
 
 <button type="submit" class="btn btn-success">
-{% if habitation.usager.mail is null %}
+{% if habitation.id is null %}
 Valider
 {% else %}
 Modifier

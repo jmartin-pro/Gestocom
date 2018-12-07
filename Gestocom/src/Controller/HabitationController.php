@@ -66,20 +66,24 @@ class HabitationController extends AbstractController
         else
         {
 
-            return $this->render('habitation/ajouterHabitation.html.twig', array('formHabitation' => $form->createView(),));
+            return $this->render('habitation/formHabitation.html.twig', array('formHabitation' => $form->createView(),  "habitation" => $habitation,));
 
         }
     }
 
-    public function modifierHabitation($id, Request $request){
+    public function modifierHabitation($id, Request $request)
+    {
 
         //récupération de l'étudiant dont l'id est passé en paramètre
         $habitation = $this->getDoctrine()
             ->getRepository(Habitation::class)
             ->find($id);
     
-        if (!$habitation) {
+        if (!$habitation) 
+        {
+
             throw $this->createNotFoundException('Aucune habitation trouvé avec le numéro '.$id);
+
         }
         else
         {
@@ -94,8 +98,11 @@ class HabitationController extends AbstractController
                      $entityManager->flush();
                      return $this->render('habitation/consulterhabitation.html.twig', ['habitation' => $habitation,]);
                }
-               else{
-                    return $this->render('habitation/ajouterHabitation.html.twig', array('formHabitation' => $form->createView(), "habitation" => $habitation,));
+               else
+               {
+
+                    return $this->render('habitation/formHabitation.html.twig', array('formHabitation' => $form->createView(), "habitation" => $habitation,));
+                    
                }
             }
      }

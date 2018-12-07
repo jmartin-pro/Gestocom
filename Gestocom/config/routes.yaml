@@ -40,6 +40,10 @@ leveesDetail:
     path : levees
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
 
+consulterCatalogueLevees:
+    path : /catalogueLevees
+    controller : App\Controller\LeveesCatalogueController::consulterCatalogueLevees
+
 #Mentions Legales
 
 mentionsLegales:
