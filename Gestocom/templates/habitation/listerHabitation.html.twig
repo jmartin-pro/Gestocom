@@ -4,32 +4,28 @@
 
 {% block body %}
 
-<h3> Consultation des habitation</h3>
+	<h5 class="center-align"> Liste des habitations</h5>
 
-<div class="row">
-	<div class="col-12">
-		<a href="{{ path("ajouterHabitation") }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
-	</div>
-</div>
 
-<div class="row">
-	<div class="col-12">
-		<table class="table">
-			<tr>
-				<td>Adresse</td>
-				<td>Code postal</td>
-				<td>Ville</td>
-				<td>Mail de l'usager</td>
-			</tr>
-			{% for habitation in listeHabitation %}
-			<tr>
-    			<td> <a href="{{ path('consulterHabitation',{'id':habitation.id}) }}" >{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
-				<td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
-				<td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
-				<td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>
-			</tr>
-			{% endfor %}
-		</table>
-	</div>
-</div>
+<table>
+  <tr>
+    <td>Adresse</td>
+    <td>Code postal</td>
+    <td>Ville</td>
+    <td>Mail de l'usager</td>
+
+  </tr>
+  {% for habitation in listeHabitation %}
+  <tr>
+    <td> <a href="{{ path('consulterHabitation',{'id':habitation.id}) }}" >{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
+    <td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
+    <td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
+    <td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>
+    <td><a href="{{ path('modifierHabitation',{'id':habitation.id}) }}" >Modifier</a></td>
+  </tr>
+
+
+		{% endfor %}
+	</table>
 {% endblock %}
+
