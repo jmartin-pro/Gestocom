@@ -99,5 +99,17 @@ class HabitationController extends AbstractController
                }
             }
      }
+
+    public function archiverHabitation($id)
+    {
+
+        $habitation = $this->getDoctrine()->getRepository(Habitation::class)->find($id);
+        $habitation -> setArchiver(1);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager -> persist($habitation);
+        $entityManager -> flush();
+        return $this -> redirectToRoute('listerHabitation');
+
+    }
 }
 

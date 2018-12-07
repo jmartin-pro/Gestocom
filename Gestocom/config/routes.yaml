@@ -30,6 +30,10 @@ modifierHabitation:
     path: /habitation/modifier/{id}
     controller : App\Controller\HabitationController::modifierHabitation
 
+archiverHabitation:
+    path: /habitation/archiver/{id}
+    controller : App\Controller\HabitationController::archiverHabitation
+
 #levees
 
 leveesDetail:
