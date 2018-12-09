@@ -54,6 +54,10 @@ listerReclamations:
     path: /reclamation
     controller: App\Controller\ReclamationController::listerReclamations
     
+ajouterReclamation:
+    path: /reclamation/ajouter
+    controller: App\Controller\ReclamationController::ajouterReclamation
+    
 # Compte
 listerCompte:
     path: /compte

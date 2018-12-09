@@ -1,0 +1,15 @@
+{% extends "/base.html.twig" %}
+
+{% block title %}Réclamation{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm">
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			
+			<button type="submit" class="btn btn-success">Envoyer</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

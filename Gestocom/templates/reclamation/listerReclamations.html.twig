@@ -20,8 +20,8 @@
 			<tr>
 				<td> {% if reclamation.usager is defined %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
                                 <td> {% if reclamation.objet is defined %} {{reclamation.objet }}  {% endif %} </td>
-                                <td> {% if reclamation.dateOuv is defined %} {{reclamation.dateOuv | date("Y-m-d")}}  {% endif %} </td>
-                                <td> {% if reclamation.dateFerm is defined %} {{reclamation.dateFerm | date("Y-m-d")}}  {% endif %} </td>
+                                <td> {% if reclamation.dateOuv is defined %} {{reclamation.dateOuv | date("Y/m/d h:i:s")}}  {% endif %} </td>
+                                <td> {% if reclamation.dateFerm is defined %} {{reclamation.dateFerm | date("Y/m/d h:i:s")}}  {% endif %} </td>
                                 <td> Détail </td>
 			</tr>
 
