@@ -8,17 +8,17 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181207094427 extends AbstractMigration
+final class Version20181209195940 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE compte (id INT AUTO_INCREMENT NOT NULL, login VARCHAR(100) NOT NULL, mdp VARCHAR(64) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE compte (id INT AUTO_INCREMENT NOT NULL, login VARCHAR(100) NOT NULL, mdp VARCHAR(64) NOT NULL, archive TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE container (id INT AUTO_INCREMENT NOT NULL, habitation_id INT NOT NULL, type_dechet_id INT NOT NULL, volume DOUBLE PRECISION NOT NULL, poids_brut DOUBLE PRECISION NOT NULL, charge_utile DOUBLE PRECISION NOT NULL, INDEX IDX_C7A2EC1B12708B4D (habitation_id), INDEX IDX_C7A2EC1BB93D2352 (type_dechet_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE etat (id INT AUTO_INCREMENT NOT NULL, libelle VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE habitation (id INT AUTO_INCREMENT NOT NULL, usager_id INT NOT NULL, adresse VARCHAR(50) NOT NULL, copos VARCHAR(50) NOT NULL, ville VARCHAR(50) NOT NULL, INDEX IDX_3997FA9C4F36F0FC (usager_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE habitation (id INT AUTO_INCREMENT NOT NULL, usager_id INT NOT NULL, adresse VARCHAR(50) NOT NULL, copos VARCHAR(50) NOT NULL, ville VARCHAR(50) NOT NULL, archiver TINYINT(1) NOT NULL, INDEX IDX_3997FA9C4F36F0FC (usager_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE levee (id INT AUTO_INCREMENT NOT NULL, container_id INT NOT NULL, date_levee DATETIME NOT NULL, poids DOUBLE PRECISION NOT NULL, INDEX IDX_E33674B7BC21F742 (container_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reclamation (id INT AUTO_INCREMENT NOT NULL, usager_id INT NOT NULL, etat_id INT NOT NULL, objet VARCHAR(100) NOT NULL, description LONGTEXT NOT NULL, date_ouv DATETIME NOT NULL, date_ferm DATETIME NOT NULL, INDEX IDX_CE6064044F36F0FC (usager_id), INDEX IDX_CE606404D5E86FF (etat_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reponse (id INT AUTO_INCREMENT NOT NULL, responsable_id INT NOT NULL, reclamation_id INT NOT NULL, message LONGTEXT NOT NULL, date DATETIME NOT NULL, INDEX IDX_5FB6DEC753C59D72 (responsable_id), INDEX IDX_5FB6DEC72D6BA2D9 (reclamation_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
