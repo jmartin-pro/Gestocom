@@ -10,6 +10,7 @@ use App\Form\ReclamationType;
 
 use App\Entity\Reclamation;
 use App\Entity\Usager;
+use App\Entity\Responsable;
 use App\Entity\Etat;
 
 use App\Repository\ReclamationRepository;
@@ -19,14 +20,20 @@ use App\Repository\EtatRepository;
 class ReclamationController extends AbstractController
 {
     public function listerReclamations(Request $request){
-    	if ($request->getSession()->get("user") == null) {
+    	$user = $request->getSession()->get("user");
+    	if ($user == null) {
 			return $this->redirectToRoute("index");
-		} else if (!$request->getSession()->get("user") instanceof Usager) {
-			return $this->redirectToRoute("index");
+		} 
+		
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $listeReclamation = array();
+        //Si l'utilisateur est un Usager on recupere uniquement ses reclamations sinon si on est responsable on les recuperes toutes
+		if ($user instanceof Usager) {
+			$listeReclamation = $repository->findByUsager($user->getId());
+		} else if ($user instanceof Responsable) {
+			$listeReclamation = $repository->findAll();
 		}
 
-        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
-        $listeReclamation = $repository->findAll();
     
         return $this->render('reclamation/listerReclamations.html.twig', [
             'listeReclamation' => $listeReclamation]);

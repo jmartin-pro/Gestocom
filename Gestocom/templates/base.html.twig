@@ -32,17 +32,27 @@
 						<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
 					</li>
 					{% else %}
+					{# Liens commun à tous les utilisateurs #}
+					
 					
 					{# Liens pour le responsable #}
 					{% if user.disc == "responsable" %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('listerHabitation') }}">Les habitations</a>
 					</li>
+						
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerReclamations') }}">Les réclamations</a>
+					</li>	
 					
 					{# Liens pour l'usager #}
 					{% elseif user.disc == "usager" %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('leveesDetail') }}">Mes levées</a>
+					</li>	
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerReclamations') }}">Mes réclamations</a>
 					</li>	
 					{% endif %}
 					
