@@ -175,4 +175,9 @@ class Usager extends Utilisateur
 
         return $this;
     }
+    
+	public function getDisc(): ?string
+    {
+        return "usager";
+    }
 }
