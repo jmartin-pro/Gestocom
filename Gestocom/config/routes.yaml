@@ -12,8 +12,7 @@ deconnexion:
     path: /deconnexion
     controller: App\Controller\AuthentificationController::deconnexionAction
 
-#Habitation
-
+#Habitations
 listerHabitation:
     path: /habitation
     controller : App\Controller\HabitationController::listerHabitation
@@ -23,57 +22,67 @@ ajouterHabitation:
     controller : App\Controller\HabitationController::ajouterHabitation
 
 consulterHabitation:
-    path: /habitation/consulter/{id}
+    path: /habitation/{id}
     controller : App\Controller\HabitationController::consulterHabitation
-
+    requirements:
+        id: '\d+'
+        
 modifierHabitation:
-    path: /habitation/modifier/{id}
+    path: /habitation/{id}/modifier
     controller : App\Controller\HabitationController::modifierHabitation
-
+    requirements:
+        id: '\d+'
+        
 archiverHabitation:
-    path: /habitation/archiver/{id}
+    path: /habitation/{id}/archiver
     controller : App\Controller\HabitationController::archiverHabitation
-
-#levees
-
+    requirements:
+        id: '\d+'
+        
+#Levees
 leveesDetail:
-    path : levees
+    path : /levee
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
-
-consulterCatalogueLevees:
-    path : /catalogueLevees
-    controller : App\Controller\LeveesCatalogueController::consulterCatalogueLevees
-
-#Reclamation
-
+    
+#Mentions Legales
+mentionsLegales:
+    path: /mentionsLegales
+    controller: App\Controller\MentionLegalesController::pageMentionsLegales
+    
+#Reclamations
 listerReclamations:
     path: /reclamation
     controller: App\Controller\ReclamationController::listerReclamations
     
-#Mentions Legales
-
-mentionsLegales:
-    path: /mentionsLegales
-    controller: App\Controller\MentionLegalesController::pageMentionsLegales
 # Compte
 listerCompte:
     path: /compte
     controller: App\Controller\CompteController::listerCompte
+    
 consulterCompte:
     path: /compte/{id}
     controller: App\Controller\CompteController::consulterCompte
     requirements:
         id: '\d+'
+        
 ajouterCompte:
     path: /compte/ajouter
     controller: App\Controller\CompteController::ajouterCompte
+    
 modifierCompte:
     path: /compte/{id}/modifier
     controller: App\Controller\CompteController::modifierCompte
+    requirements:
+        id: '\d+'
+        
 archiverCompte:
     path: /compte/{id}/archiver
     controller: App\Controller\CompteController::archiverCompte
+    requirements:
+        id: '\d+'
+        
 reinitMdpCompte:
     path: /compte/{id}/reinitMdp
     controller: App\Controller\CompteController::reinitMdpCompte
-# Usager
+    requirements:
+        id: '\d+'
