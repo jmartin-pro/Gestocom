@@ -1,4 +1,14 @@
-{# templates/compte/ajouter.html.twig #}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% extends "/base.html.twig" %}
+
+{% block title %}Ajouter un compte{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm">
+			<h3 class="text-center">Ajouter un compte</h3>
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

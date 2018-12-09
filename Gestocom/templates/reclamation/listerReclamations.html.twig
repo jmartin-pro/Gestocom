@@ -3,38 +3,35 @@
 {% block title %}Les reclamations{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col s12">
-            <table class="table">
-                
-                <tr>
-                <td>Usager : </td>
-                <td>Objet : </td>
-                <td>Date Ouverture :</td>
-                <td>Date Fermeture :</td>
-                <td>Voir plus</td>
-            </tr>
-        
-        
-        {% for reclamation in listeReclamation %}
+<div class="row">
+    <div class="col-sm">
+    	<h3 class="text-center">Liste des réclamations</h3>
+    
+        <table class="table">
+            <tr>
+	            <th>Usager : </th>
+	            <th>Objet : </th>
+	            <th>Date Ouverture :</th>
+	            <th>Date Fermeture :</th>
+	            <th>Voir plus</th>
+	        </tr>
+
+			{% for reclamation in listeReclamation %}
 			<tr>
 				<td> {% if reclamation.usager is defined %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
-                                <td> {% if reclamation.objet is defined %} {{reclamation.objet }}  {% endif %} </td>
-                                <td> {% if reclamation.dateOuv is defined %} {{reclamation.dateOuv | date("Y/m/d h:i:s")}}  {% endif %} </td>
-                                <td> {% if reclamation.dateFerm is defined %} {{reclamation.dateFerm | date("Y/m/d h:i:s")}}  {% endif %} </td>
-                                <td> Détail </td>
+				<td> {% if reclamation.objet is defined %} {{reclamation.objet }}  {% endif %} </td>
+				<td> {% if reclamation.dateOuv is defined %} {{reclamation.dateOuv | date("Y/m/d h:i:s")}}  {% endif %} </td>
+				<td> {% if reclamation.dateFerm is defined %} {{reclamation.dateFerm | date("Y/m/d h:i:s")}}  {% endif %} </td>
+				<td> Détail </td>
 			</tr>
 
-		{% else %}
+			{% else %}
 			<tr>
 				<td>Aucune réclamations n'a été trouvée.</td>
 			</tr>
-
-		{% endfor %}
-	</table>
-        </div>
-        
-        
-    </div>
+			{% endfor %}
+		</table>
+	</div>  
+</div>
 
 {% endblock %}

@@ -3,32 +3,38 @@
 {% block title %}Les habitations{% endblock %}
 
 {% block body %}
+<div class="row">
+	<div class="col-sm">
 
-	<h5 class="center-align"> Liste des habitations</h5>
+		<h3 class="text-center"> Liste des habitations</h3>
 
-<a href="{{ path('ajouterHabitation') }}" >Ajouter</a>
-<table>
-  <tr>
-    <td>Adresse</td>
-    <td>Code postal</td>
-    <td>Ville</td>
-    <td>Mail de l'usager</td>
+		<a href="{{ path('ajouterHabitation') }}"><button class="btn btn-primary">Ajouter</button></a>
+		
+		<table>
+			<tr>
+				<th>Adresse</th>
+				<th>Code postal</th>
+				<th>Ville</th>
+				<th>Mail de l'usager</th>
+			</tr>
+			
+			{% for habitation in listeHabitation %}
+			<tr>
+			{% if habitation.archiver == 0 %}
+				<td> <a href="{{ path('consulterHabitation',{'id':habitation.id}) }}" >{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
+				<td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
+				<td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
+				<td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>
+				<td><a href="{{ path('modifierHabitation',{'id':habitation.id}) }}" >Modifier</a></td>
+				<td><a href="{{ path('archiverHabitation',{'id':habitation.id}) }}" >Supprimer</a></td>
+			{% endif %}
+			</tr>
 
-  </tr>
-  {% for habitation in listeHabitation %}
-  <tr>
-    {% if habitation.archiver == 0 %}
-    <td> <a href="{{ path('consulterHabitation',{'id':habitation.id}) }}" >{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
-    <td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
-    <td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
-    <td> {% if habitation.usager.mail is defined %} {{habitation.usager.mail}}  {% endif %} </td>
-    <td><a href="{{ path('modifierHabitation',{'id':habitation.id}) }}" >Modifier</a></td>
-    <td><a href="{{ path('archiverHabitation',{'id':habitation.id}) }}" >Supprimer</a></td>
-    {% endif %}
-  </tr>
 
+			{% endfor %}
+		</table>
 
-		{% endfor %}
-	</table>
+	</div>
+</div>
 {% endblock %}
 

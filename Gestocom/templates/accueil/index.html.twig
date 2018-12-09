@@ -4,14 +4,14 @@
 
 {% block body %}
 	<div class="row">
-		<div class="col s12">
+		<div class="col-sm">
 			{% if user is not null%}
 				<p>Bienvenue sur Gestocom {{" " ~ user.nom ~ " " ~ user.prenom }}</p>
 			{% else %}
 				<p>Bienvenue sur gestocom </p>
 			{% endif %}
 			
-			<img src="{{ asset("img/catalogue_levees.png") }}" alt="">
+			<img class="img-fluid" src="{{ asset("img/catalogue_levees.png") }}" alt="">
 		</div>
 	</div>
 {% endblock %}

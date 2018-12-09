@@ -1,25 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% if habitation.id is null %}
-<h1> Ajout d'une habitation</h1>
-{% else %}
-<h1> Modification information de l'adresse</h1>
-{% endif %}
-{{ form_start(formHabitation) }}
-{{form_row(formHabitation.adresse,{'attr' : {'placeholder' : "Adresse de l'habitation"}} ) }}
-{{form_row(formHabitation.copos,{'attr' : {'placeholder' : "Code postal de l'habitation"}} ) }}
-{{form_row(formHabitation.ville,{'attr' : {'placeholder' : "Ville de l'habitation"}} ) }}
-{{form_row(formHabitation.usager) }}
+<div class="row">
+	<div class="col-sm">
+		{% if habitation.id is null %}
+		<h3 class="text-center">Ajout d'une habitation</h3>
+		{% else %}
+		<h3 class="text-center">Modification information de l'adresse</h3>
+		{% endif %}
+		
+		{{ form_start(formHabitation) }}
+		{{form_row(formHabitation.adresse,{'attr' : {'placeholder' : "Adresse de l'habitation"}} ) }}
+		{{form_row(formHabitation.copos,{'attr' : {'placeholder' : "Code postal de l'habitation"}} ) }}
+		{{form_row(formHabitation.ville,{'attr' : {'placeholder' : "Ville de l'habitation"}} ) }}
+		{{form_row(formHabitation.usager) }}
 
-<button type="submit" class="btn btn-success">
-{% if habitation.id is null %}
-Valider
-{% else %}
-Modifier
-{% endif %}
-</button>
+		<button type="submit" class="btn btn-primary">
+		{% if habitation.id is null %}
+		Valider
+		{% else %}
+		Modifier
+		{% endif %}
+		</button>
 
-{{ form_end(formHabitation) }}
-
+		{{ form_end(formHabitation) }}
+	</div>
+</div>
 {% endblock %}
