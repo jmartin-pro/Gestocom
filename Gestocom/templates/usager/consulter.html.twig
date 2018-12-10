@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+		{% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+		
+		<h5>PAGE DE CONSULTATION D'UN USAGER</h5>
+ <p>
+  <table >
+	<tr><td>Nom : </td><td>{{usager.nom}}<td></tr>
+	<tr><td>Prenom : </td><td>{{usager.prenom}}</td>
+	<tr><td>Adresse : </td><td>{{usager.adresse}}<td></tr>
+	<tr><td>Code Postal : </td><td>{{usager.copos}}</td>
+	<tr><td>Ville : </td><td>{{usager.ville}}<td></tr>
+	<tr><td>Mail : </td><td>{{usager.mail}}</td>
+	<tr><td>Téléphone : </td><td>{{usager.tel}}<td></tr>
+	
+     <tr><td>Login : </td><td>{{usager.compte.login}} </td></tr>
+
+
+	</br>
+	</br>
+	
+    </body>
+</html>

@@ -63,3 +63,20 @@ reinitMdpCompte:
     path: /compte/{id}/reinitMdp
     controller: App\Controller\CompteController::reinitMdpCompte
 # Usager
+listerUsager:
+    path: /usager
+    controller: App\Controller\UsagerController::listerUsager
+consulterUsager:
+    path: /usager/{id}
+    controller: App\Controller\UsagerController::consulterUsager
+    requirements:
+        id: '\d+'
+ajouterUsager:
+    path: /usager/ajouter
+    controller: App\Controller\UsagerController::ajouterUsager
+modifierUsager:
+    path: /usager/{id}/modifier
+    controller: App\Controller\UsagerController::modifierUsager
+archiverUsager:
+    path: /usager/{id}/archiver
+    controller: App\Controller\UsagerController::archiverUsager

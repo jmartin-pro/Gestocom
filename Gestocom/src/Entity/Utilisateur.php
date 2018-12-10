@@ -40,6 +40,11 @@ abstract class Utilisateur
      */
     private $compte;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archive;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +94,18 @@ abstract class Utilisateur
     public function setCompte(Compte $compte): self
     {
         $this->compte = $compte;
+
+        return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(bool $archive): self
+    {
+        $this->archive = $archive;
 
         return $this;
     }
