@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm">
+            <h3 class="text-center">{{reclamation.objet}} </h3>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-8">{{ reclamation.usager.prenom ~" "~ reclamation.usager.nom }} </div>
+                <div class="col-sm-4">{{reclamation.dateOuv | date("Y/m/d h:i:s")}}</div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <p> {{reclamation.description}}</p>
+                </div>
+            </div>
+            {% for reponse in reclamation.reponses %}
+
+                <hr size="1px"/>
+
+                <div class="row">
+                    <div class="col-sm-8">{{ reponse.utilisateur.prenom ~" "~ reponse.utilisateur.nom }} </div>
+                    <div class="col-sm-4">{{ reponse.date | date("Y/m/d h:i:s")}}</div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col">
+                        <p> {{reponse.message}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-4" >
+            Etat : <br/>{{ reclamation.etat.libelle }}
+        </div>
+    </div>
+    <input type="text">
+{% endblock %}
