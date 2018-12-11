@@ -1,4 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if usager is not defined %}
+<h1> Ajout d'un usager</h1>
+{% else %}
+<h1> Modification des informations de l'usager</h1>
+{% endif %}
+
+
 {# templates/usager/ajouter.html.twig #}
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
+
+
+{% endblock %}

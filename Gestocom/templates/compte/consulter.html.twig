@@ -17,10 +17,10 @@
     {% else %}
 		<tr><td>Pas d'utilisateur affilié</td></tr>
 	{% endif %}
-
-
-	</br>
-	</br>
+	<tr><td><a href="{{ path('modifierCompte', { 'id': compte.id }) }}">Modifier</a></td></tr>
 	
+	</table>
+	<br>
+		<a href="{{ path('listerCompte') }}">Liste des comptes</a>
     </body>
 </html>

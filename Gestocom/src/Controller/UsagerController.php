@@ -37,9 +37,9 @@ class UsagerController extends AbstractController
 			$entityManager->persist($usager);
 			$entityManager->flush();
 	   
-			return $this->render('usager/consulter.html.twig', ['usager' => $usager,]);
-		}
-		else{
+			return $this->redirectToRoute("consulterUsager", array("id" => $usager->getId()));
+		} 
+		else {
 			return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),));
 		}
 		
@@ -123,9 +123,7 @@ class UsagerController extends AbstractController
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($usager);
                  $entityManager->flush();
-				 $repository = $this->getDoctrine()->getRepository(Usager::class);
-				$usagers = $repository->findAll();
-				return $this->render('usager/lister.html.twig', ['pUsagers' => $usagers,]);
+				return $this->render('usager/consulter.html.twig', ['usager' => $usager,]);
            }
            else{
                 return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),));

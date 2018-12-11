@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-		{% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
 		
-		<h5>PAGE DE CONSULTATION D'UN USAGER</h5>
- <p>
-  <table >
+		<h3>L'usager</h3>
+
+  <table class="table">
 	<tr><td>Nom : </td><td>{{usager.nom}}<td></tr>
 	<tr><td>Prenom : </td><td>{{usager.prenom}}</td>
 	<tr><td>Adresse : </td><td>{{usager.adresse}}<td></tr>
@@ -17,12 +13,21 @@
 	<tr><td>Ville : </td><td>{{usager.ville}}<td></tr>
 	<tr><td>Mail : </td><td>{{usager.mail}}</td>
 	<tr><td>Téléphone : </td><td>{{usager.tel}}<td></tr>
+	<tr></tr>
+    <tr><td>Login : </td><td>{{usager.compte.login}} </td></tr>
+	<tr></tr>
+	<tr><td>Archivé :</td>
+	<td>
+	{% if usager.archive == true %} Oui 
+	{% else %} Non 
+	{% endif %}
+	</td></tr>
 	
-     <tr><td>Login : </td><td>{{usager.compte.login}} </td></tr>
-
-
-	</br>
-	</br>
+	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}">Modifier</a></td></tr>
 	
-    </body>
-</html>
+	</table>
+	
+	
+	<a href="{{ path('listerUsager') }}">Retour à la liste des usagers</a>
+	
+{% endblock %}

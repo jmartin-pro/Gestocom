@@ -10,11 +10,15 @@
         {% block javascripts %}{% endblock %}
 		
 		LISTE DES COMPTES</br></br>
+		
+		<a href="{{ path('ajouterCompte') }}">Ajouter un compte</a>
+		
 		<table>
 		{% for c in pComptes %}
 		<tr>
 			<td><a href="{{ path('consulterCompte', { 'id': c.id }) }}">{{ c.login }}</a></td>
-			<td>****</a></td>
+			<td><a href="{{ path('modifierCompte', { 'id': c.id }) }}">Modifier</a></td>
+			<td><a href="{{ path('archiverCompte', { 'id': c.id }) }}">Archiver</a></td>
 	{% else %}
 		<tr>
 		<td>Aucun compte n'a été trouvé.</td>
