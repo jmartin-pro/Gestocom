@@ -34,10 +34,18 @@
                     </div>
                 </div>
             {% endfor %}
+			<br/>
+			{% include '/reponse/formReponse.html.twig' %}
         </div>
         <div class="col-sm-4" >
-            Etat : <br/>{{ reclamation.etat.libelle }}
+			{% if app.session.get("user") isInstanceof Usager%} 
+				Etat : {{reclamation.etat.libelle}}
+			{%else%}
+				{% include '/reclamation/formModifierEtatReclamation.html.twig' %}
+			{%endif%}
         </div>
+		
     </div>
-    <input type="text">
+
+			
 {% endblock %}
