@@ -53,4 +53,9 @@ class Responsable extends Utilisateur
 
         return $this;
     }
+    
+    public function getDisc(): ?string
+    {
+        return "responsable";
+    }
 }

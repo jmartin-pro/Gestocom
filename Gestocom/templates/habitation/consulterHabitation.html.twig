@@ -2,23 +2,28 @@
 
 
 {% block body %}
+<div class="row">
+	<div class="col-sm">
+		<h3 class="text-center">L'habitation de {{habitation.usager.prenom}} {{habitation.usager.nom}}</h3>
+		
+		<table class="table">
+			<tr>
+				<th>Adresse</th>
+				<th>Code Postal</th>
+				<th>Ville</th>
+				<th>Adresse mail</th>
+				<th>Numéro de téléphone</th>
+			</tr>
+			
+			<tr>
+				<td>{{habitation.adresse}}</td>
+				<td>{{habitation.copos}}</td>
+				<td>{{habitation.ville}}</td>
+				<td>{{habitation.usager.mail}}</td>
+				<td>{{habitation.usager.tel}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
 
-<h3>L'habitation de {{habitation.usager.prenom}} {{habitation.usager.nom}}</h3>
-
-<table class="table">
-  <tr>
-    <td>Adresse</td>
-    <td>Code Postal</td>
-    <td>Ville</td>
-    <td>Adresse mail</td>
-    <td>Numéro de téléphone</td>
-  </tr>
-  <tr>
-    <td>{{habitation.adresse}}</td>
-    <td>{{habitation.copos}}</td>
-    <td>{{habitation.ville}}</td>
-    <td>{{habitation.usager.mail}}</td>
-    <td>{{habitation.usager.tel}}</td>
-  </tr>
-</table>
 {% endblock %}

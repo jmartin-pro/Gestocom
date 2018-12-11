@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-		{% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-		
-		<h5>PAGE DE CONSULTATION D'UN COMPTE</h5>
- <p>
-  <table >
-     <tr><td>Login : </td><td>{{compte.login}} </td></tr>
-	<tr><td>Mot de passe : </td><td>****</td></tr>
-	{% if compte.utilisateur != null %}
-	<tr><td>Utilisateur concerné : </td><td>{{compte.utilisateur.nom}} {{compte.utilisateur.prenom}}</td>
-    {% else %}
-		<tr><td>Pas d'utilisateur affilié</td></tr>
-	{% endif %}
+{% extends "/base.html.twig" %}
 
+{% block title %}Les comptes{% endblock %}
 
-	</br>
-	</br>
-	
-    </body>
-</html>
+{% block body %}
+	<div class="row">
+		<div class="col-sm">
+			<h3 class="text-center">Page de consultation d'un compte</h3>
+
+			<table class="table">
+				<tr>
+					<th>Login : </th>
+					<td>{{compte.login}} </td>
+				</tr>
+				
+				<tr>
+					<th>Mot de passe : </th>
+					<td>****</td>
+				</tr>
+				{% if compte.utilisateur != null %}
+				<tr>
+					<th>Utilisateur concerné : </th>
+					<td>{{compte.utilisateur.nom}} {{compte.utilisateur.prenom}}</td>
+				</tr>
+				{% else %}
+				<tr>
+					<td>Pas d'utilisateur affilié</td>
+				</tr>
+				{% endif %}
+			</table>
+		</div>
+	</div>
+{% endblock %}

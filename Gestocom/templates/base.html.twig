@@ -25,27 +25,41 @@
 				<ul class="navbar-nav">
 					<li class="nav-item active">
 						<a class="nav-link" href="{{ path('index') }}">Accueil <span class="sr-only">(current)</span></a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('consulterCatalogueLevees') }}">Catalogue des levées</a>
-					</li>
+					</li>		
 					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerHabitation') }}">Habitations</a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('leveesDetail') }}">Mes levées</a>
-					</li>			
-				
+					{% if user is null %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
 					</li>
+					{% else %}
+					{# Liens commun à tous les utilisateurs #}
+					
+					
+					{# Liens pour le responsable #}
+					{% if user.disc == "responsable" %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerHabitation') }}">Les habitations</a>
+					</li>
+						
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerReclamations') }}">Les réclamations</a>
+					</li>	
+					
+					{# Liens pour l'usager #}
+					{% elseif user.disc == "usager" %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('leveesDetail') }}">Mes levées</a>
+					</li>	
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerReclamations') }}">Mes réclamations</a>
+					</li>	
+					{% endif %}
 					
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
 					</li>
+					{% endif %}
 				</ul>
 			</div>
 		</nav>
@@ -55,8 +69,8 @@
 		
         {% block javascripts %}{% endblock %}
 
-		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/popper.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/jquery-3.2.1.slim.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
     </body>
 </html>
