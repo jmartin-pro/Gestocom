@@ -55,7 +55,9 @@ listerReclamations:
 mentionsLegales:
     path: /mentionsLegales
     controller: App\Controller\MentionLegalesController::pageMentionsLegales
+
 # Compte
+
 listerCompte:
     path: /compte
     controller: App\Controller\CompteController::listerCompte

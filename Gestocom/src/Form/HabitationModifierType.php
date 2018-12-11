@@ -23,21 +23,28 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class HabitationModifierType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
        $builder
             ->add('usager',EntityType::class,array('class' => Usager::class, 'choice_label'=>'mail'));
 
     }
 
-    public function getParent(){
+    public function getParent()
+    {
+
       return HabitationType::class;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
+
         $resolver->setDefaults([
             'data_class' => Habitation::class,
         ]);
+        
     }
 }

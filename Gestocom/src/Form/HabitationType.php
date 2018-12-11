@@ -18,8 +18,10 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class HabitationType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('adresse')
             ->add('copos')
@@ -28,14 +30,17 @@ class HabitationType extends AbstractType
                 'class' => Usager::class,
                 'choice_label'=>'mail'
   
-              ))
-        ;
+              ));
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
+
         $resolver->setDefaults([
             'data_class' => Habitation::class,
         ]);
+
     }
+    
 }

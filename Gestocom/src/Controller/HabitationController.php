@@ -24,6 +24,7 @@ class HabitationController extends AbstractController
      
     public function consulterHabitation($id)
     {
+
         $repository = $this->getDoctrine()->getRepository(Habitation::class);
         $uneHabitation = $repository->findOneById($id);
         return $this->render('habitation/consulterHabitation.html.twig', [
@@ -87,16 +88,19 @@ class HabitationController extends AbstractController
         }
         else
         {
+
                 $form = $this->createForm(HabitationModifierType::class, $habitation);
                 $form->handleRequest($request);
     
-                if ($form->isSubmitted() && $form->isValid()) {
+                if ($form->isSubmitted() && $form->isValid())
+                {
     
                      $habitation = $form->getData();
                      $entityManager = $this->getDoctrine()->getManager();
                      $entityManager->persist($habitation);
                      $entityManager->flush();
                      return $this->render('habitation/consulterhabitation.html.twig', ['habitation' => $habitation,]);
+
                }
                else
                {
