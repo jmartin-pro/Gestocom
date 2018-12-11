@@ -10,7 +10,7 @@
 
 		<a href="{{ path('ajouterHabitation') }}"><button class="btn btn-primary">Ajouter</button></a>
 		
-		<table>
+		<table class="table">
 			<tr>
 				<th>Adresse</th>
 				<th>Code postal</th>
@@ -20,7 +20,7 @@
 			
 			{% for habitation in listeHabitation %}
 			<tr>
-			{% if habitation.archiver == 0 %}
+			{% if habitation.archiver == false %}
 				<td> <a href="{{ path('consulterHabitation',{'id':habitation.id}) }}" >{% if habitation.adresse is defined %} {{habitation.adresse}}  {% endif %} </td>
 				<td> {% if habitation.copos is defined %} {{habitation.copos}}  {% endif %} </td>
 				<td> {% if habitation.ville is defined %} {{habitation.ville}}  {% endif %} </td>
@@ -36,5 +36,6 @@
 
 	</div>
 </div>
+
 {% endblock %}
 

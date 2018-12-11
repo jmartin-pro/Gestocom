@@ -1,0 +1,47 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Les usagers{% endblock %}
+
+		
+{% block body %}
+
+	<div class="row">
+		<div class="col-sm">
+			<h3 class="text-center">Liste des usagers</h3>
+
+				</br>
+				</br>
+				
+			<a href="{{ path('ajouterUsager') }}">Ajouter un usager</a>
+				
+			</br>
+			</br>
+			
+			<table class="table">
+				
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</td>
+					<th> </th>
+					<th> </th>
+				
+				{% for u in pUsagers %}
+				
+				<tr>
+					<td><a href="{{ path('consulterUsager', { 'id': u.id }) }}">{% if u.nom is defined %} {{ u.nom }} {% endif %} </a></td>
+					<td>{% if u.prenom is defined %} {{ u.prenom }} {% endif %} </a></td>
+					<td><a href="{{ path('modifierUsager', { 'id': u.id }) }}">Modifier</a></td>
+					<td><a href="{{ path('archiverUsager', { 'id': u.id }) }}">Archiver</a></td>
+				</tr>
+				{% else %}
+				<tr>
+					<td>Aucun usager n'a été trouvé.</td>
+				</tr>
+				{% endfor %}
+				
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+		
