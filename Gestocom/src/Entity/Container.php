@@ -50,6 +50,11 @@ class Container
      */
     private $typeDechet;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archive;
+
     public function __construct()
     {
         $this->levees = new ArrayCollection();
@@ -147,6 +152,18 @@ class Container
     public function setTypeDechet(?TypeDechet $typeDechet): self
     {
         $this->typeDechet = $typeDechet;
+
+        return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(bool $archive): self
+    {
+        $this->archive = $archive;
 
         return $this;
     }

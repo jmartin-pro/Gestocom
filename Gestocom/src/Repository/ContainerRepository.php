@@ -35,6 +35,10 @@ class ContainerRepository extends ServiceEntityRepository
         ;
     }
     */
+	
+	public function __toString(){
+    return $this->nom.' '.$this->prenom;
+}
 
     /*
     public function findOneBySomeField($value): ?Container
