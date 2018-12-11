@@ -58,6 +58,12 @@ ajouterReclamation:
     path: /reclamation/ajouter
     controller: App\Controller\ReclamationController::ajouterReclamation
     
+consulterReclamation:
+    path : /reclamation/{id}
+    controller : App\Controller\ReclamationController::consulterReclamation
+    requirements:
+        id: '\d+'
+    
 # Compte
 listerCompte:
     path: /compte

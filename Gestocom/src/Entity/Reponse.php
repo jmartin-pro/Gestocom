@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReponseRepository")
@@ -27,10 +29,10 @@ class Reponse
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Responsable", inversedBy="reponses")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur", inversedBy="reponses")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $responsable;
+    private $utilisateur;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Reclamation", inversedBy="reponses")
@@ -67,14 +69,14 @@ class Reponse
         return $this;
     }
 
-    public function getResponsable(): ?Responsable
+    public function getUtilisateur(): ?Utilisateur
     {
-        return $this->responsable;
+        return $this->utilisateur;
     }
 
-    public function setResponsable(?Responsable $responsable): self
+    public function setUtilisateur(?Utilisateur $utilisateur): self
     {
-        $this->responsable = $responsable;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
