@@ -33,6 +33,11 @@ class TypeDechet
      */
     private $tarifs;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archiver;
+
     public function __construct()
     {
         $this->containers = new ArrayCollection();
@@ -114,6 +119,18 @@ class TypeDechet
                 $tarif->setTypeDechet(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getArchiver(): ?bool
+    {
+        return $this->archiver;
+    }
+
+    public function setArchiver(bool $archiver): self
+    {
+        $this->archiver = $archiver;
 
         return $this;
     }

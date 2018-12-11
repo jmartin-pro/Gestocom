@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+	<div class="col-sm">
+		{% if typeDechet.id is null %}
+		<h3 class="text-center">Ajout d'un type de dechet</h3>
+		{% else %}
+		<h3 class="text-center">Modification information d'un type de dechet</h3>
+		{% endif %}
+		
+		{{ form_start(formTypeDechet) }}
+		{{form_row(formTypeDechet.libelle,{'attr' : {'placeholder' : "Adresse de l'habitation"}} ) }}
+
+		<button type="submit" class="btn btn-primary">
+		{% if typeDechet.id is null %}
+		Valider
+		{% else %}
+		Modifier
+		{% endif %}
+		</button>
+
+		{{ form_end(formTypeDechet) }}
+	</div>
+</div>
+{% endblock %}

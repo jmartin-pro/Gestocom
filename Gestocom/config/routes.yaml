@@ -91,3 +91,24 @@ reinitMdpCompte:
     controller: App\Controller\CompteController::reinitMdpCompte
     requirements:
         id: '\d+'
+
+#TypeDechet
+listerTypeDechet:
+    path: /typeDechet
+    controller : App\Controller\TypeDechetController::listerTypeDechet
+
+ajouterTypeDechet:
+    path: /typeDechet/ajouter
+    controller : App\Controller\TypeDechetController::ajouterTypeDechet
+        
+modifierTypeDechet:
+    path: /typeDechet/{id}/modifier
+    controller : App\Controller\TypeDechetController::modifierTypeDechet
+    requirements:
+        id: '\d+'
+        
+archiverTypeDechet:
+    path: /typeDechet/{id}/archiver
+    controller : App\Controller\TypeDechetController::archiverTypeDechet
+    requirements:
+        id: '\d+'
