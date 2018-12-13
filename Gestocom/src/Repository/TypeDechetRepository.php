@@ -49,6 +49,4 @@ class TypeDechetRepository extends ServiceEntityRepository
     */
 
     // returns an array of Product objects
-    return $query->execute();
-}
 }

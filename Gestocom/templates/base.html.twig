@@ -52,7 +52,7 @@
 					{# Liens pour l'usager #}
 					{% elseif user.disc == "usager" %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('leveesDetail') }}">Mes levées</a>
+						<a class="nav-link" href="{{ path('leveesMois') }}">Mes levées</a>
 					</li>	
 					
 					<li class="nav-item">
@@ -73,7 +73,6 @@
 		</div>
 		
         {% block javascripts %}{% endblock %}
-
 		<script type="text/javascript" src="{{ asset("js/popper.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/jquery-3.2.1.slim.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
