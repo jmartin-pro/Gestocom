@@ -7,15 +7,23 @@
 		<div class="col-sm">
 			<h3 class="text-center">Liste des comptes</h3>
 
+			<a href="{{ path('ajouterCompte') }}">Ajouter un compte</a>
+			
+			</br>
+			</br>
+			
 			<table class="table">
+			
 				<tr>
 					<th>Login</th>
 					<th>Mot de passe</th>
 				</tr>
-			{% for c in pComptes %}
+				
+				{% for c in pComptes %}
 				<tr>
 					<td><a href="{{ path('consulterCompte', { 'id': c.id }) }}">{{ c.login }}</a></td>
-					<td>****</td>
+					<td><a href="{{ path('modifierCompte', { 'id': c.id }) }}">Modifier</a></td>
+					<td><a href="{{ path('archiverCompte', { 'id': c.id }) }}">Archiver</a></td>
 				</tr>
 				{% else %}
 				<tr>
@@ -26,3 +34,4 @@
 		</div>
 	</div>
 {% endblock %}
+

@@ -27,7 +27,13 @@
 					<td>Pas d'utilisateur affilié</td>
 				</tr>
 				{% endif %}
+				<tr>
+					<td><a href="{{ path('modifierCompte', { 'id': compte.id }) }}">Modifier</a></td>
+				</tr>
 			</table>
+		<br>
+		<a href="{{ path('listerCompte') }}">Liste des comptes</a>
 		</div>
 	</div>
 {% endblock %}
+

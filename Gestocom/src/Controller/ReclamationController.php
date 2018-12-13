@@ -12,13 +12,25 @@ use App\Entity\Reclamation;
 use App\Entity\Usager;
 use App\Entity\Responsable;
 use App\Entity\Etat;
+use App\Entity\Utilisateur;
+use App\Entity\Reponse;
 
+use App\Repository\ReponseRepository;
+use App\Repository\UtilisateurRepository;
 use App\Repository\ReclamationRepository;
 use App\Repository\UsagerRepository;
 use App\Repository\EtatRepository;
 
 class ReclamationController extends AbstractController
 {
+    public function consulterReclamation($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Reclamation::class);
+        $uneReclamation = $repository->findOneById($id);
+        return $this->render('Reclamation/consulterReclamation.html.twig', [
+            'reclamation' => $uneReclamation]);
+    }
+    
     public function listerReclamations(Request $request){
     	$user = $request->getSession()->get("user");
     	if ($user == null) {

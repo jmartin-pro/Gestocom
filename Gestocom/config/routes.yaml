@@ -57,7 +57,13 @@ listerReclamations:
 ajouterReclamation:
     path: /reclamation/ajouter
     controller: App\Controller\ReclamationController::ajouterReclamation
-
+    
+consulterReclamation:
+    path : /reclamation/{id}
+    controller : App\Controller\ReclamationController::consulterReclamation
+    requirements:
+        id: '\d+'
+    
 # Compte
 
 listerCompte:
@@ -79,13 +85,13 @@ modifierCompte:
     controller: App\Controller\CompteController::modifierCompte
     requirements:
         id: '\d+'
-        
+
 archiverCompte:
     path: /compte/{id}/archiver
     controller: App\Controller\CompteController::archiverCompte
     requirements:
         id: '\d+'
-        
+
 reinitMdpCompte:
     path: /compte/{id}/reinitMdp
     controller: App\Controller\CompteController::reinitMdpCompte
@@ -118,3 +124,31 @@ archiverTypeDechet:
     controller : App\Controller\TypeDechetController::archiverTypeDechet
     requirements:
         id: '\d+'
+
+# Usager
+listerUsager:
+    path: /usager
+    controller: App\Controller\UsagerController::listerUsager
+
+consulterUsager:
+    path: /usager/{id}
+    controller: App\Controller\UsagerController::consulterUsager
+    requirements:
+        id: '\d+'
+
+ajouterUsager:
+    path: /usager/ajouter
+    controller: App\Controller\UsagerController::ajouterUsager
+
+modifierUsager:
+    path: /usager/{id}/modifier
+    controller: App\Controller\UsagerController::modifierUsager
+    requirements:
+        id: '\d+'
+
+archiverUsager:
+    path: /usager/{id}/archiver
+    controller: App\Controller\UsagerController::archiverUsager
+    requirements:
+        id: '\d+'
+

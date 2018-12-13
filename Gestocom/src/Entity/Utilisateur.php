@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +41,16 @@ abstract class Utilisateur
      * @ORM\JoinColumn(nullable=false)
      */
     private $compte;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="utilisateur")
+     */
+    private $reponses;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archive;
 
     public function getId(): ?int
     {
@@ -89,6 +101,46 @@ abstract class Utilisateur
     public function setCompte(Compte $compte): self
     {
         $this->compte = $compte;
+
+        return $this;
+    }
+
+    public function getArchive(): ?bool
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(bool $archive): self
+    {
+        $this->archive = $archive;
+    }
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): self
+    {
+        if ($this->reponses->contains($reponse)) {
+            $this->reponses->removeElement($reponse);
+            // set the owning side to null (unless already changed)
+            if ($reponse->getUtilisateur() === $this) {
+                $reponse->setUtilisateur(null);
+            }
+        }
 
         return $this;
     }
