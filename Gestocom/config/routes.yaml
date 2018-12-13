@@ -97,6 +97,12 @@ listerTypeDechet:
     path: /typeDechet
     controller : App\Controller\TypeDechetController::listerTypeDechet
 
+consulterTypeDechet:
+    path: /typeDechet/{id}
+    controller : App\Controller\TypeDechetController::consulterTypeDechet
+    requirements:
+        id: '\d+'
+
 ajouterTypeDechet:
     path: /typeDechet/ajouter
     controller : App\Controller\TypeDechetController::ajouterTypeDechet

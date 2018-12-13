@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeInterface;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -30,7 +31,8 @@ class HabitationType extends AbstractType
                 'class' => Usager::class,
                 'choice_label'=>'mail'
   
-              ));
+              ))
+            ->add('archiver', TextType::class);  
 
     }
 

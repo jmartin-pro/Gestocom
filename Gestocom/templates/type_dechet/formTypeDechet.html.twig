@@ -3,17 +3,17 @@
 {% block body %}
 <div class="row">
 	<div class="col-sm">
-		{% if typeDechet.id is null %}
+		{% if listeTypeDechet.id is null %}
 		<h3 class="text-center">Ajout d'un type de dechet</h3>
 		{% else %}
 		<h3 class="text-center">Modification information d'un type de dechet</h3>
 		{% endif %}
 		
 		{{ form_start(formTypeDechet) }}
-		{{form_row(formTypeDechet.libelle,{'attr' : {'placeholder' : "Adresse de l'habitation"}} ) }}
-
+		{{form_row(formTypeDechet.libelle,{'attr' : {'placeholder' : "Libelle du type de déchet"}} ) }}
+		{{form_row(formTypeDechet.archiver),{'attr' : {'placeholder' : "0 pour non et 1 pour oui"}} ) }}
 		<button type="submit" class="btn btn-primary">
-		{% if typeDechet.id is null %}
+		{% if listeTypeDechet.id is null %}
 		Valider
 		{% else %}
 		Modifier

@@ -21,16 +21,27 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TypeDechetController extends AbstractController
 {
-     
+    public function consulterTypeDechet($id)
+    {
+
+		$repository = $this->getDoctrine()->getRepository(TypeDechet::class);
+		
+		$unTypeDechet = $repository->findOneById($id);
+		return $this->render('type_dechet/consulterTypeDechet.html.twig', [
+            'unTypeDechet' => $unTypeDechet,]);	
+
+    }
+    
     public function listerTypeDechet()
     {
 
         $repository = $this->getDoctrine()->getRepository(TypeDechet::class);
-        $listeTypeDechet = $repository->findAllTarifActuel();
+        $listeTypeDechet = $repository->findAll();
         $repository = $this->getDoctrine()->getRepository(Tarif::class);
+        $listeTarif = $repository->findAll();
 
         return $this->render('type_dechet/listerTypeDechet.html.twig', [
-                     'listeTypeDechet' => $listeTypeDechet
+                     'listeTypeDechet' => $listeTypeDechet, 'listeTarif' => $listeTarif
         ]);
 
     }
@@ -39,26 +50,26 @@ class TypeDechetController extends AbstractController
     {
 
         $typeDechet = new typeDechet();
-        $form = $this->createForm(TypeDechet::class, $typeDechet);
+        $form = $this->createForm(TypeDechetType::class, $typeDechet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) 
         {
 
-            $typeDechet = $form->getData();
+            $unTypeDechet = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($typeDechet);
+            $entityManager->persist($unTypeDechet);
             $entityManager->flush();
-    
-            return $this->redirectToRoute('listerTypeDechet');
+            return $this->render('type_dechet/consulterTypeDechet.html.twig', ['unTypeDechet' => $unTypeDechet,]);
+
 
         }
 
         else
         {
 
-            return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(),  "typeDechet" => $typeDechet,));
+            return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(),  "listeTypeDechet" => $typeDechet,));
 
         }
     }
@@ -66,11 +77,11 @@ class TypeDechetController extends AbstractController
     public function modifierTypeDechet($id, Request $request)
     {
 
-        $typeDechet = $this->getDoctrine()
+        $listeTypeDechet = $this->getDoctrine()
             ->getRepository(TypeDechet::class)
             ->find($id);
     
-        if (!$typeDechet) 
+        if (!$listeTypeDechet) 
         {
 
             throw $this->createNotFoundException('Aucun type de déchet trouvé avec le numéro '.$id);
@@ -79,23 +90,23 @@ class TypeDechetController extends AbstractController
         else
         {
 
-                $form = $this->createForm(TypeDechetModifierType::class, $typeDechet);
+                $form = $this->createForm(TypeDechetModifierType::class, $listeTypeDechet);
                 $form->handleRequest($request);
     
                 if ($form->isSubmitted() && $form->isValid())
                 {
     
-                     $typeDechet = $form->getData();
+                     $unTypeDechet = $form->getData();
                      $entityManager = $this->getDoctrine()->getManager();
-                     $entityManager->persist($typeDechet);
+                     $entityManager->persist($listeTypeDechet);
                      $entityManager->flush();
-                     return $this->render('type_dechet/listerTypeDechet.html.twig', ['typeDechet' => $typeDechet,]);
+                     return $this->render('type_dechet/consulterTypeDechet.html.twig', ['unTypeDechet' => $unTypeDechet,]);
 
                }
                else
                {
 
-                    return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(), "typeDechet" => $typeDechet,));
+                    return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(), "listeTypeDechet" => $listeTypeDechet,));
                     
                }
             }

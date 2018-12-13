@@ -14,7 +14,7 @@
 		{{form_row(formHabitation.copos,{'attr' : {'placeholder' : "Code postal de l'habitation"}} ) }}
 		{{form_row(formHabitation.ville,{'attr' : {'placeholder' : "Ville de l'habitation"}} ) }}
 		{{form_row(formHabitation.usager) }}
-
+		{{form_row(formHabitation.archiver,{'attr' : {'placeholder' : "0 pour non et 1 pour oui"}} ) }}
 		<button type="submit" class="btn btn-primary">
 		{% if habitation.id is null %}
 		Valider
