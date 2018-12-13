@@ -37,13 +37,11 @@ class ReclamationController extends AbstractController {
 		}
 		
 		$etatReclamation = new Etat();
+		$formEtat = $this->createForm(ReclamationEtatModifierType::class, $uneReclamation);
+		$formEtat->handleRequest($request);
 		//Changement de l'etat en tant que responsable
 		if ($user instanceof Responsable) {
-			$formEtat = $this->createForm(ReclamationEtatModifierType::class, $uneReclamation);
-			$formEtat->handleRequest($request);
-
 			if ($formEtat->isSubmitted() && $formEtat->isValid()) {
-
 				$etatReclamation = $formEtat->getData();
 				$entityManager = $this->getDoctrine()->getManager();
 				$entityManager->persist($etatReclamation);

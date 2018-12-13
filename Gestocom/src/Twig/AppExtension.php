@@ -3,18 +3,19 @@
 namespace App\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\TwigTest;
 
 class AppExtension extends AbstractExtension 
 {
-	public function getFilters()
+	public function getTests()
 	{
 		return array(
-			new TwigFilter("isInstanceof", array($this, "isInstanceof"))
+			new TwigTest("instanceof", array($this, "isInstanceof"))
 		);
 	}
 	
-	public function isInstanceof($var, $instance){
+	public function isInstanceof($var, $className){
+		$instance = new $className();
 		return $var instanceof $instance;
 	}
 }

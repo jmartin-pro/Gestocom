@@ -38,10 +38,10 @@
 			{% include '/reponse/formReponse.html.twig' %}
         </div>
         <div class="col-sm-4" >
-			{% if app.session.get("user") isInstanceof Usager%} 
-				Etat : {{reclamation.etat.libelle}}
-			{%else%}
+			{% if app.session.get("user") is instanceof("App\\Entity\\Responsable")%} 
 				{% include '/reclamation/formModifierEtatReclamation.html.twig' %}
+			{%else%}
+				Etat : {{reclamation.etat.libelle}}
 			{%endif%}
         </div>
 		
