@@ -134,4 +134,17 @@ class TypeDechet
 
         return $this;
     }
+    
+    public function getTarifActuel() {
+    	$tarifActuel = null;
+    	$dateMax = new \DateTime(date("0/0/0"));
+    	foreach($this->tarifs as $tarif) {
+    		if($tarif->getDate() > $dateMax) {
+    			$tarifActuel = $tarif;
+    			$dateMax = $tarif->getDate();
+			}
+    	}
+    	
+    	return $tarifActuel;
+    }
 }

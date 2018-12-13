@@ -10,31 +10,21 @@
 
 		<a href="{{ path('ajouterTypeDechet') }}"><button class="btn btn-primary">Ajouter</button></a>
 		
-		<table>
+		<table class="table">
 			<tr>
 				<th>Type de dechet</th>
 				<th>Tarif</th>
 				<th>Dernière modification</th>
+				<th>Modifier</th>
+				<th>Supprimer</th>
 			</tr>
 			
 			{% for typeDechet in listeTypeDechet %}
 			<tr>
 			{% if typeDechet.archiver == 0 %}
 				<td> {% if typeDechet.libelle is defined %} {{typeDechet.libelle}}  {% endif %} </td>			
-				<td> 
-				{% for tarifs in listeTarif %}
-					{% if tarifs.typeDechet.id == typeDechet.id %}
-						 {% if tarifs.tarif is defined %} {{tarifs.tarif}}  {% endif %} 
-					{% endif %}
-				{% endfor %}
-				</td>
-				<td> 
-				{% for tarifs in listeTarif %}
-					{% if tarifs.typeDechet.id == typeDechet.id %}
-						{% if tarifs.date is defined %} {{tarifs.date | date("Y/m/d")}}  {% endif %} 			
-					{% endif %}	
-				{% endfor %}
-				</td>
+				<td>{% if typeDechet.TarifActuel is not null%} {{ typeDechet.TarifActuel.tarif }}€{%endif%}</td>
+				<td>{% if typeDechet.TarifActuel is not null%}{{ typeDechet.TarifActuel.date|date("Y/m/d H:i:s")}}{%endif%}</td>
 				<td><a href="{{ path('modifierTypeDechet',{'id':typeDechet.id}) }}" >Modifier</a></td>
 				<td><a href="{{ path('archiverTypeDechet',{'id':typeDechet.id}) }}" >Supprimer</a></td>
 			{% endif %}

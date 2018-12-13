@@ -34,14 +34,11 @@ class TypeDechetController extends AbstractController
     
     public function listerTypeDechet()
     {
-
         $repository = $this->getDoctrine()->getRepository(TypeDechet::class);
         $listeTypeDechet = $repository->findAll();
-        $repository = $this->getDoctrine()->getRepository(Tarif::class);
-        $listeTarif = $repository->findAll();
 
         return $this->render('type_dechet/listerTypeDechet.html.twig', [
-                     'listeTypeDechet' => $listeTypeDechet, 'listeTarif' => $listeTarif
+                     'listeTypeDechet' => $listeTypeDechet
         ]);
 
     }
@@ -57,11 +54,12 @@ class TypeDechetController extends AbstractController
         {
 
             $unTypeDechet = $form->getData();
+			$unTypeDechet->setArchiver(false);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($unTypeDechet);
             $entityManager->flush();
-            return $this->render('type_dechet/consulterTypeDechet.html.twig', ['unTypeDechet' => $unTypeDechet,]);
+            return $this->redirectToRoute("listerTypeDechet");
 
 
         }
@@ -100,7 +98,7 @@ class TypeDechetController extends AbstractController
                      $entityManager = $this->getDoctrine()->getManager();
                      $entityManager->persist($listeTypeDechet);
                      $entityManager->flush();
-                     return $this->render('type_dechet/consulterTypeDechet.html.twig', ['unTypeDechet' => $unTypeDechet,]);
+                     return $this->redirectToRoute("listerTypeDechet");
 
                }
                else
