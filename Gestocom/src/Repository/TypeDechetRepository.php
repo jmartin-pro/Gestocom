@@ -47,19 +47,6 @@ class TypeDechetRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function findAllTarifActuel(): array
-{
-    $entityManager = $this->getEntityManager();
-
-    $query = $entityManager->createQuery(
-        'SELECT td
-        FROM App\Entity\TypeDechet td, App\Entity\Tarif t
-        WHERE t.typeDechet = td.id
-        AND t.date = (SELECT MAX(date) FROM App\Entity\Tarif)
-        ORDER BY td.libelle ASC'
-    );
 
     // returns an array of Product objects
-    return $query->execute();
-}
 }

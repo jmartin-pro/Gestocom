@@ -40,9 +40,24 @@ archiverHabitation:
         id: '\d+'
         
 #Levees
-leveesDetail:
+leveesMois:
     path : /levee
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
+    
+leveesDetail:
+    path : /levee/{month}/{year}
+    controller : App\Controller\LeveesDetailController::detailMois 
+    requirements:
+        month: '\d+'
+        year: '\d+'
+    
+leveesAnnee:
+    path : /levee/anciennes
+    controller : App\Controller\LeveesDetailController::detailAnneeEnCoursAction 
+    
+leveesPDF:
+    path : /levee/{month}/{year}/pdf
+    controller : App\Controller\LeveesDetailController::pdfDetailMois
     
 #Mentions Legales
 mentionsLegales:

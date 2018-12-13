@@ -9,18 +9,18 @@
     
         <table class="table">
             <tr>
-	            <th>Usager : </th>
-	            <th>Objet : </th>
-                    <th>Etat : </th>
-	            <th>Date Ouverture :</th>
-	            <th>Date Fermeture :</th>
+	            <th>Usager</th>
+	            <th>Objet</th>
+	            <th>Etat</th>
+	            <th>Date Ouverture</th>
+	            <th>Date Fermeture</th>
 	            <th>Voir plus</th>
 	        </tr>
 			{% for reclamation in listeReclamation %}
 			<tr>
 				<td> {% if reclamation.usager is not empty %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
 				<td> {% if reclamation.objet is not empty %} {{reclamation.objet }}  {% endif %} </td>
-                                <td> {% if reclamation.etat is not empty %} {{reclamation.etat.libelle }} {% endif %} </td>
+                <td> {% if reclamation.etat is not empty %} {{reclamation.etat.libelle }} {% endif %} </td>
 				<td> {% if reclamation.dateOuv is not empty %} {{reclamation.dateOuv | date("Y/m/d h:i:s")}}  {% endif %} </td>
 				<td> {% if reclamation.dateFerm is not empty %} {{reclamation.dateFerm | date("Y/m/d h:i:s")}}  {% endif %} </td>
 				<td> <a href="{{ path('consulterReclamation',{'id':reclamation.id}) }}" >Détail</a></td>
