@@ -23,8 +23,8 @@ class LeveeRepository extends ServiceEntityRepository
 		return $this->createQueryBuilder('levee')
 			->andWhere('levee.dateLevee BETWEEN :start AND :end')
 			->orderBy('levee.dateLevee', 'DESC')
-			->setParameter('start', new \Datetime(date('Y-m-').'1'))
-			->setParameter('end',   new \Datetime(date('Y-m-t')))
+			->setParameter('start', new \Datetime(date("Y-m-1 00:00:00")))
+			->setParameter('end', new \Datetime(date("Y-m-t 23:59:59")))
 			->getQuery()
 			->getResult()
 		;

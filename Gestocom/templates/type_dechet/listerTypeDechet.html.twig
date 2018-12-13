@@ -24,7 +24,7 @@
 			{% if typeDechet.archiver == 0 %}
 				<td> {% if typeDechet.libelle is defined %} {{typeDechet.libelle}}  {% endif %} </td>			
 				<td>{% if typeDechet.TarifActuel is not null%} {{ typeDechet.TarifActuel.tarif }}€{%endif%}</td>
-				<td>{% if typeDechet.TarifActuel is not null%}{{ typeDechet.TarifActuel.date|date("Y/m/d H:i:s")}}{%endif%}</td>
+				<td>{% if typeDechet.TarifActuel is not null%}{{ typeDechet.tarifActuel.date|date("Y/m/d H:i:s")}}{%endif%}</td>
 				<td><a href="{{ path('modifierTypeDechet',{'id':typeDechet.id}) }}" >Modifier</a></td>
 				<td><a href="{{ path('archiverTypeDechet',{'id':typeDechet.id}) }}" >Supprimer</a></td>
 			{% endif %}

@@ -21,7 +21,7 @@
 				<td>{% if levee.dateLevee is defined %}{{levee.dateLevee|date('Y/m/d')}}{% endif %}</td>
 				<td>{% if levee.container.habitation is defined %}{{levee.container.habitation.adresse ~ " " ~ levee.container.habitation.ville}}{% endif %}</td>
 				<td>{% if levee.container.typeDechet is defined %}{{levee.container.typeDechet.libelle}}{% endif %}</td>
-				<td>{% if levee.poids is defined and levee.container.typeDechet.tarifs  is defined%} {{levee.poids * levee.container.typeDechet.tarifs.get(0).tarif}}€{% endif %}</td>
+				<td>{% if levee.poids is defined and levee.container.typeDechet.tarifDate(levee.dateLevee)  is not null%}{{ levee.poids * levee.container.typeDechet.tarifDate(levee.dateLevee).tarif}}€{% endif %}</td>
 			</tr>
 			{%endif%}
 
