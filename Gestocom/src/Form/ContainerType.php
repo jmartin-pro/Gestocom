@@ -21,11 +21,12 @@ class ContainerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('habitation', EntityType::class, array('class' => 'App\Entity\Habitation','choice_label' => 'adresse'))
-            ->add('typeDechet', EntityType::class, array('class' => 'App\Entity\TypeDechet','choice_label' => 'libelle'))
+            ->add('habitation', EntityType::class, array('class' => 'App\Entity\Habitation', 'choice_label' => function($habitation) { return $habitation->__toString();}))
+            ->add('typeDechet', EntityType::class, array('class' => 'App\Entity\TypeDechet', 'choice_label' => 'libelle'))
             ->add('volume',NumberType::class, array('scale' => 3))
             ->add('poidsBrut',NumberType::class, array('scale' => 3))
             ->add('chargeUtile',NumberType::class, array('scale' => 3))
+			->add('enregistrer', SubmitType::class, array('label' => 'Nouveau conteneur'))
         ;
     }
 
