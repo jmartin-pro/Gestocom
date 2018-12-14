@@ -55,7 +55,7 @@ class HabitationController extends AbstractController
         {
 
             $habitation = $form->getData();
-
+            $habitation->setArchiver(false);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($habitation);
             $entityManager->flush();

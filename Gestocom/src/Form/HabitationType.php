@@ -31,8 +31,7 @@ class HabitationType extends AbstractType
                 'class' => Usager::class,
                 'choice_label'=>'mail'
   
-              ))
-            ->add('archiver', TextType::class);  
+            ));
 
     }
 
