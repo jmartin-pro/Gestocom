@@ -1,0 +1,49 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Les conteneurs{% endblock %}
+
+		
+{% block body %}
+
+	<div class="row">
+		<div class="col-sm">
+			<h3 class="text-center">Liste des conteneurs</h3>
+
+				</br>
+				</br>
+				
+			<a href="{{ path('ajouterContainer') }}">Ajouter un conteneur</a>
+				
+			</br>
+			</br>
+			
+			<table class="table">
+				
+				<tr>
+					<th>Nom de l'usager</th>
+					<th>Ville de l'habitation</th>
+					<th>Charge utile</th>
+					<th> </th>
+					<th> </th>
+				
+				{% for c in pContainers %}
+				
+				<tr>
+					<td><a href="{{ path('consulterContainer', { 'id': c.id }) }}">{% if c.habitation.usager.nom is defined %}{{c.habitation.usager.nom}} {% endif %} </a></td>
+					<td><a href="{{ path('consulterContainer', { 'id': c.id }) }}">{% if c.habitation.ville is defined %} {{ c.habitation.ville }}{% endif %} </a></td>
+					<td>{% if c.chargeUtile is defined %} {{ c.chargeUtile }}{% endif %} </td>
+					<td><a href="{{ path('modifierContainer', { 'id': c.id }) }}">Modifier</a></td>
+					<td><a href="{{ path('archiverContainer', { 'id': c.id }) }}">Archiver</a></td>
+				</tr>
+				{% else %}
+				<tr>
+					<td>Aucun conteneur n'a été trouvé.</td>
+				</tr>
+				{% endfor %}
+				
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+		
