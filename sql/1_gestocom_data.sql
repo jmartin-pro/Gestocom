@@ -426,3 +426,10 @@ INSERT INTO `reponse` (`id`, `utilisateur_id`, `reclamation_id`, `message`, `dat
 (1, 48, 1, 'J\'ai bien pris en compte votre demande et vais modifier, dans le plus bref délais votre adresse.', '2018-12-14 06:51:13'),
 (2, 1, 1, 'Je vous remercie.', '2018-12-14 06:53:02');
 
+INSERT INTO `levee` (`id`, `container_id`, `date_levee`, `poids`) VALUES 
+('1', '90', '2018-12-13 00:00:00', '100.0'), 
+('2', '75', '2018-12-02 00:00:00', '50.0'),
+('3', '82', '2018-12-16 00:00:00', '320.0'), 
+('4', '84', '2018-12-09 00:00:00', '220.0'),
+('5', '152', '2018-12-12 00:00:00', '230.0'),
+('6', '153', '2018-12-12 00:00:00', '40.0');

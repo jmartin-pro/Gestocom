@@ -60,7 +60,7 @@ class HabitationController extends AbstractController
             $entityManager->persist($habitation);
             $entityManager->flush();
     
-            return $this->redirectToRoute('listerHabitation');
+            return $this->render('habitation/consulterhabitation.html.twig', ['habitation' => $habitation,]);
 
         }
 
