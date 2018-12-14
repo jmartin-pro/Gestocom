@@ -43,7 +43,7 @@ archiverHabitation:
 leveesMois:
     path : /levee
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
-    
+  
 leveesDetail:
     path : /levee/{month}/{year}
     controller : App\Controller\LeveesDetailController::detailMois 
@@ -58,7 +58,7 @@ leveesAnnee:
 leveesPDF:
     path : /levee/{month}/{year}/pdf
     controller : App\Controller\LeveesDetailController::pdfDetailMois
-    
+
 #Mentions Legales
 mentionsLegales:
     path: /mentionsLegales
@@ -166,4 +166,37 @@ archiverUsager:
     controller: App\Controller\UsagerController::archiverUsager
     requirements:
         id: '\d+'
+
+# Container (conteneurs en français)
+listerContainer:
+    path: /container
+    controller: App\Controller\ContainerController::listerContainer
+
+consulterContainer:
+    path: /container/{id}
+    controller: App\Controller\ContainerController::consulterContainer
+    requirements:
+        id: '\d+'
+
+ajouterContainer:
+    path: /container/ajouter
+    controller: App\Controller\ContainerController::ajouterContainer
+
+modifierContainer:
+    path: /container/{id}/modifier
+    controller: App\Controller\ContainerController::modifierContainer
+    requirements:
+        id: '\d+'
+
+archiverContainer:
+    path: /container/{id}/archiver
+    controller: App\Controller\ContainerController::archiverContainer
+    requirements:
+        id: '\d+'
+listerContainerLevees:
+    path: /container/{id}/levees
+    controller: App\Controller\LeveesController::listerLevees
+    requirements:
+        id: '\d+'
+   
 
