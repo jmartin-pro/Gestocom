@@ -382,3 +382,15 @@ INSERT INTO `container` (`habitation_id`, `volume`, `poids_brut`, `charge_utile`
 (4976, '240.00', '13.00', '100.00', '1'),
 (4976, '240.00', '13.00', '100.00', '2'),
 (4976, '120.00', '9.00', '50.00', '3');
+
+INSERT INTO `etat` (id, libelle) VALUES
+(1, 'En Attente'),
+(2, 'Refuser'),
+(3, 'Terminer');
+
+INSERT INTO `reclamation` (`id`, `usager_id`, `etat_id`, `objet`, `description`, `date_ouv`, `date_ferm`) VALUES
+(1, 1, 2, 'Changement d\'adresse', 'J\'ai changer d\'adresse récemment j\'habite actuellement au Lycée Jean Rostand, 14000, Caen', '2018-12-14 06:49:41', NULL);
+
+INSERT INTO `reponse` (`id`, `utilisateur_id`, `reclamation_id`, `message`, `date`) VALUES
+(1, 48, 1, 'J\'ai bien pris en compte votre demande et vais modifier, dans le plus bref délais votre adresse.', '2018-12-14 06:51:13'),
+(2, 1, 1, 'Je vous remercie.', '2018-12-14 06:53:02');
