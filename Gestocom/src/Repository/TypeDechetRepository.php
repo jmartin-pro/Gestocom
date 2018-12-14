@@ -47,4 +47,6 @@ class TypeDechetRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // returns an array of Product objects
 }

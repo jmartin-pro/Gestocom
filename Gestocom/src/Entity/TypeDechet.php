@@ -33,6 +33,11 @@ class TypeDechet
      */
     private $tarifs;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $archiver;
+
     public function __construct()
     {
         $this->containers = new ArrayCollection();
@@ -117,4 +122,43 @@ class TypeDechet
 
         return $this;
     }
+
+    public function getArchiver(): ?bool
+    {
+        return $this->archiver;
+    }
+
+    public function setArchiver(bool $archiver): self
+    {
+        $this->archiver = $archiver;
+
+        return $this;
+    }
+    
+    public function getTarifActuel() {
+    	$tarifActuel = null;
+    	$dateMax = new \DateTime(date("0/0/0"));
+    	foreach($this->tarifs as $tarif) {
+    		if($tarif->getDate() > $dateMax) {
+    			$tarifActuel = $tarif;
+    			$dateMax = $tarif->getDate();
+			}
+    	}
+    	
+    	return $tarifActuel;
+    }
+    
+    public function getTarifDate($date) {
+ 		$tarifDate = null;
+    	$dateMax = new \DateTime(date("0/0/0"));
+    	foreach($this->tarifs as $tarif) {
+    		if($tarif->getDate() <= $date && $tarif->getDate() > $dateMax) {
+    			$tarifDate = $tarif;
+    			$dateMax = $tarif->getDate();
+			}
+    	}
+    	
+    	return $tarifDate;
+    }
+  
 }

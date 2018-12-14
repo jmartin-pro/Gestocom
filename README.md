@@ -23,7 +23,7 @@ Le projet comporte 3 dossiers :
 - sql ->Contient l'historique de tous les scripts (SQL ou PHP) qui ont modifié la BDD.
 - Gestocom -> Contient le code source de l'application
 
-Le trello utilisé pour projet est disponible ici : https://trello.com/b/y0GAvinr
+Le trello utilisé pour le projet est disponible ici : https://trello.com/b/y0GAvinr
 
 # Objectif de l'application
 
@@ -42,7 +42,7 @@ L’application doit permettre aux usagers de consulter leurs factures dès que 
 
 # Collaborateurs
 
-Le projet étant réalisé par groupe de 2, voici la liste des personnes affectées sur le présent projet : 
+Le projet étant réalisé par groupe de 4, voici la liste des personnes affectées sur le présent projet : 
 - Justine MARTIN ([@justine-martin-study](https://github.com/justine-martin-study))
 - Auriane ASSEMAT ([@AurianeAssemat](https://github.com/AurianeAssemat))
 - Corentin VINCENT ([@cvincent14](https://github.com/cvincent14))

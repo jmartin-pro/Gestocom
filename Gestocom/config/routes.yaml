@@ -40,10 +40,25 @@ archiverHabitation:
         id: '\d+'
         
 #Levees
-leveesDetail:
+leveesMois:
     path : /levee
     controller : App\Controller\LeveesDetailController::detailMoisEnCoursAction 
-     
+  
+leveesDetail:
+    path : /levee/{month}/{year}
+    controller : App\Controller\LeveesDetailController::detailMois 
+    requirements:
+        month: '\d+'
+        year: '\d+'
+    
+leveesAnnee:
+    path : /levee/anciennes
+    controller : App\Controller\LeveesDetailController::detailAnneeEnCoursAction 
+    
+leveesPDF:
+    path : /levee/{month}/{year}/pdf
+    controller : App\Controller\LeveesDetailController::pdfDetailMois
+
 #Mentions Legales
 mentionsLegales:
     path: /mentionsLegales
@@ -65,6 +80,7 @@ consulterReclamation:
         id: '\d+'
     
 # Compte
+
 listerCompte:
     path: /compte
     controller: App\Controller\CompteController::listerCompte
@@ -97,6 +113,33 @@ reinitMdpCompte:
     requirements:
         id: '\d+'
 
+#TypeDechet
+listerTypeDechet:
+    path: /typeDechet
+    controller : App\Controller\TypeDechetController::listerTypeDechet
+
+consulterTypeDechet:
+    path: /typeDechet/{id}
+    controller : App\Controller\TypeDechetController::consulterTypeDechet
+    requirements:
+        id: '\d+'
+
+ajouterTypeDechet:
+    path: /typeDechet/ajouter
+    controller : App\Controller\TypeDechetController::ajouterTypeDechet
+        
+modifierTypeDechet:
+    path: /typeDechet/{id}/modifier
+    controller : App\Controller\TypeDechetController::modifierTypeDechet
+    requirements:
+        id: '\d+'
+        
+archiverTypeDechet:
+    path: /typeDechet/{id}/archiver
+    controller : App\Controller\TypeDechetController::archiverTypeDechet
+    requirements:
+        id: '\d+'
+
 # Usager
 listerUsager:
     path: /usager
@@ -123,6 +166,7 @@ archiverUsager:
     controller: App\Controller\UsagerController::archiverUsager
     requirements:
         id: '\d+'
+
 # Container (conteneurs en français)
 listerContainer:
     path: /container
@@ -155,3 +199,4 @@ listerContainerLevees:
     requirements:
         id: '\d+'
    
+
