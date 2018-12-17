@@ -59,11 +59,19 @@ class LeveesDetailController extends AbstractController {
 	
 	public function pdfDetailMois(Request $request, $month, $year) {
 		$name = "Detail_levees_".$month."_".$year.".pdf";
+		$user = $request->getSession()->get("user");
 		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findMois($month, $year);
+		$sum = 0;
+		foreach($levees as $levee) {
+			$sum += $levee->getContainer()->getTypeDechet()->getTarifDate($levee->getDateLevee())->getTarif();
+		}
+		
+		
 		$html = $this->renderView('levees_detail/pdf.html.twig', 
-			array("idUser" => 1,
+			array("idUser" => $user->getId(),
 				"levees" => $levees,
+				"sum" => $sum,
 				"month" => strftime("%B", strtotime("2000-".$month."-01")),
 				"year" => $year));
 				
