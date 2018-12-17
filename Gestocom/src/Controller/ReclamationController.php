@@ -25,6 +25,7 @@ class ReclamationController extends AbstractController {
 		$reponse = new Reponse();
 		$form = $this->createForm(ReponseType::class, $reponse);
 		$form->handleRequest($request);
+		
 		if ($form->isSubmitted() && $form->isValid()) {
 			$reponse = $form->getData();
 			//On configure les champs par défauts
@@ -34,18 +35,24 @@ class ReclamationController extends AbstractController {
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager->persist($reponse);
 			$entityManager->flush();
+			return $this->redirectToRoute('consulterReclamation',array("id"=> $id));
 		}
 		
 		$etatReclamation = new Etat();
 		$formEtat = $this->createForm(ReclamationEtatModifierType::class, $uneReclamation);
 		$formEtat->handleRequest($request);
+		
 		//Changement de l'etat en tant que responsable
 		if ($user instanceof Responsable) {
 			if ($formEtat->isSubmitted() && $formEtat->isValid()) {
 				$etatReclamation = $formEtat->getData();
+				if ($etatReclamation->getEtat()->getId() != 1){
+					$etatReclamation->setDateFerm(new \DateTime(date('m/d/Y h:i:s a', time())));
+				}
 				$entityManager = $this->getDoctrine()->getManager();
 				$entityManager->persist($etatReclamation);
 				$entityManager->flush();
+				return $this->redirectToRoute('consulterReclamation',array("id"=> $id));
 			}
 		}
 

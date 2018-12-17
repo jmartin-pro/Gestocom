@@ -55,12 +55,12 @@ class HabitationController extends AbstractController
         {
 
             $habitation = $form->getData();
-
+            $habitation->setArchiver(false);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($habitation);
             $entityManager->flush();
     
-            return $this->redirectToRoute('listerHabitation');
+            return $this->render('habitation/consulterhabitation.html.twig', ['habitation' => $habitation,]);
 
         }
 

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+		
+		<h3>Le conteneur</h3>
+
+  <table class="table">
+	<tr><th>Usager associé : </th><td>{{container.habitation.usager.nom}} {{container.habitation.usager.prenom}}<td></tr>
+	<tr><th>Habitation : </th><td>{{container.habitation.adresse}} {{container.habitation.copos}} {{container.habitation.ville}}</td>
+	<tr><th>Type de déchet : </th><td>{{container.typeDechet.libelle}}<td></tr>
+	<tr><th>Volume : </th><td>{{container.volume}}</td>
+	<tr><th>Poids brut : </th><td>{{container.poidsBrut}}<td></tr>
+	<tr><th>Charge utile : </th><td>{{container.chargeUtile}}</td>
+	<tr></tr>
+	<tr><th>Levées :</th><td><a href="{{ path('listerContainerLevees', { 'id': container.id }) }}">Consulter les levées</a></td></tr>
+	<tr></tr>
+	<tr><td><a href="{{ path('modifierContainer', { 'id': container.id }) }}">Modifier</a></td></tr>
+	
+	</table>
+	
+	<a href="{{ path('listerContainer') }}">Retour à la liste des conteneurs</a>
+	
+{% endblock %}

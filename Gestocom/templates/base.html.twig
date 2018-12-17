@@ -49,6 +49,9 @@
 						<a class="nav-link" href="{{ path('listerTypeDechet') }}">Les types de déchets</a>
 					</li>	
 					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerContainer') }}">Les containers</a>
+					</li>
 					{# Liens pour l'usager #}
 					{% elseif user.disc == "usager" %}
 					<li class="nav-item">
