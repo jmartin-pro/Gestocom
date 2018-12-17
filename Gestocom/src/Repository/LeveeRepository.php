@@ -34,16 +34,23 @@ class LeveeRepository extends ServiceEntityRepository
 		$previousYear = date('Y') - 1;
 		$previousMounth = date('m') - 1;
 	
-		return $this->createQueryBuilder('levee')
-			->select('levee')
+		$tmpLevees = $this->createQueryBuilder('levee')
+			->select('levee, MONTH(levee.dateLevee) AS month')
 			->Where('levee.dateLevee BETWEEN :start AND :end')
-			->orderBy('levee.dateLevee', 'DESC')
+			->orderBy('levee.dateLevee', 'ASC')
+			->groupBy('month')
 			->setParameter('start', new \Datetime(date($previousYear.'-m-1 00:00:00')))
 			->setParameter('end',   new \Datetime(date('Y-'.$previousMounth.'-t 23:59:59')))
 			->getQuery()
 			->getResult()
 		;
-
+		
+		$levees = array();
+		foreach($tmpLevees as $levee) {
+			array_push($levees, $levee[0]);
+		}
+		
+		return $levees;
 	}
 
     // /**

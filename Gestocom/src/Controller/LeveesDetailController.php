@@ -51,7 +51,7 @@ class LeveesDetailController extends AbstractController {
 		}
 		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findAnneeEnCours();
-
+		
 		return $this->render('levees_detail/mois_precedents.html.twig', 
 			array("idUser" => $user->getId(),
 				"levees" => $levees));
