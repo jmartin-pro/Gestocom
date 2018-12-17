@@ -1,13 +1,15 @@
 var table = $('table');
+var lastTh = null; 
 
 $('th')
-    .wrapInner('<span title="sort this column"/>')
+    .wrapInner('<span title="Trier la colonne"/>')
     .each(function(){
 
         var th = $(this),
             thIndex = th.index(),
             inverse = false;
-
+            
+		th.css("cursor", "pointer");
         th.click(function(){
 
             table.find('td').filter(function(){
@@ -31,6 +33,12 @@ $('th')
             });
 
             inverse = !inverse;
+            if(lastTh != null && (lastTh.text().indexOf("▲") >= 0 || lastTh.text().indexOf("▼") >= 0)) {
+            	lastTh.text(lastTh.text().slice(0, -1));	
+            } 
+            
+            $(this).text($(this).text() + ((inverse) ? "▲" : "▼"));
+            lastTh = $(this);
 
         });
 
