@@ -32,6 +32,10 @@ class LeveesDetailController extends AbstractController {
 			return $this->redirectToRoute("index");
 		}
 		
+		if($month > 12 || $month <= 0) {
+			return $this->redirectToRoute("leveesMois");
+		}
+		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findMois($month, $year);
 
 		return $this->render('levees_detail/mois_en_cours.html.twig', 
