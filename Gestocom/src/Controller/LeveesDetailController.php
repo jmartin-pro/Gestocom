@@ -64,7 +64,7 @@ class LeveesDetailController extends AbstractController {
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findMois($month, $year);
 		$sum = 0;
 		foreach($levees as $levee) {
-			$sum += $levee->getContainer()->getTypeDechet()->getTarifDate($levee->getDateLevee())->getTarif();
+			$sum += $levee->getContainer()->getTypeDechet()->getTarifDate($levee->getDateLevee())->getTarif() * $levee->getPoids();
 		}
 		
 		
