@@ -35,8 +35,11 @@
                 </div>
             {% endfor %}
 			<br/>
-			{% include '/reponse/formReponse.html.twig' %}
-        </div>
+			{%if app.session.get("user") is instanceof("App\\Entity\\Responsable") or app.session.get("user") is instanceof("App\\Entity\\Usager") and reclamation.etat.libelle =="En Attente"%}
+				{% include '/reponse/formReponse.html.twig' %}
+			{%endif%}
+			
+		</div>
         <div class="col-sm-4" >
 			{% if app.session.get("user") is instanceof("App\\Entity\\Responsable")%} 
 				{% include '/reclamation/formModifierEtatReclamation.html.twig' %}
