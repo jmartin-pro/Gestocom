@@ -21,7 +21,7 @@ class LeveesDetailController extends AbstractController {
 		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findMois(date("m"), date("Y"));
 
-		return $this->render('levees_detail/mois_en_cours.html.twig', 
+		return $this->render('levees_detail/levees_mois.html.twig', 
 			array("idUser" => $user->getId(),
 				"levees" => $levees));
 	}
@@ -38,8 +38,9 @@ class LeveesDetailController extends AbstractController {
 		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findMois($month, $year);
 
-		return $this->render('levees_detail/mois_en_cours.html.twig', 
+		return $this->render('levees_detail/levees_mois.html.twig', 
 			array("idUser" => $user->getId(),
+				"month" => $month,
 				"levees" => $levees)); 
 	}
 	
@@ -51,7 +52,7 @@ class LeveesDetailController extends AbstractController {
 		
 		$levees = $this->getDoctrine()->getRepository(Levee::class)->findAnneeEnCours();
 
-		return $this->render('levees_detail/annees_precedentes.html.twig', 
+		return $this->render('levees_detail/mois_precedents.html.twig', 
 			array("idUser" => $user->getId(),
 				"levees" => $levees));
 	}
@@ -63,12 +64,11 @@ class LeveesDetailController extends AbstractController {
 		$html = $this->renderView('levees_detail/pdf.html.twig', 
 			array("idUser" => 1,
 				"levees" => $levees,
-				"month" => date("F", strtotime("2000-".$month."-01")),
+				"month" => strftime("%B", strtotime("2000-".$month."-01")),
 				"year" => $year));
 				
 		$options = new Options();
 		$options->setIsRemoteEnabled(true);
-		$options->setLogOutputFile("/var/tmp/log-pdf");
 		
 		$dompdf = new Dompdf($options);		
 		$dompdf->loadHtml($html);
