@@ -5,6 +5,9 @@ namespace App\Form;
 use App\Entity\Usager;
 use App\Entity\Utilisateur;
 use App\Entity\Compte;
+
+use App\Form\CompteType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class UsagerType extends AbstractType
 {
@@ -31,9 +35,8 @@ class UsagerType extends AbstractType
             ->add('adresse', TextType::class)
             ->add('copos', TextType::class)
             ->add('ville', TextType::class)
-            ->add('mail', TextType::class)
             ->add('tel', TextType::class)
-            ->add('compte', EntityType::class, array('class' => 'App\Entity\Compte','choice_label' => 'login'))
+            ->add('compte', CompteType::class)
 			->add('enregistrer', SubmitType::class, array('label' => 'Nouvel usager'))
         ;
     }

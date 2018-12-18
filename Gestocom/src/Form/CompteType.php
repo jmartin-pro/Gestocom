@@ -21,7 +21,6 @@ class CompteType extends AbstractType
         $builder
             ->add('login', EmailType::class)
             ->add('mdp', TextType::class)
-			->add('ajouter', SubmitType::class, array('label' => 'Nouveau compte'))
         ;
     }
 
