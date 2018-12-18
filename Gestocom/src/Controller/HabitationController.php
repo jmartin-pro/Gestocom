@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 
 use App\Form\HabitationModifierType;
 use App\Form\HabitationType;
+use App\Form\HabitationUsagerType;
 use App\Entity\Habitation;
 use App\Entity\Usager;
 use App\Repository\HabitationRepository;
@@ -44,16 +45,30 @@ class HabitationController extends AbstractController
 
     }
 	
-	public function habitationsUsager($id)
+	public function ajouterHabitationUsager($id, Request $request)
     {
-		$usager = $this->getDoctrine()->getRepository(Usager::class)->findById($id);
+		$usager = $this->getDoctrine()->getRepository(Usager::class)->find($id);
 
-        $repository = $this->getDoctrine()->getRepository(Habitation::class);
-        $listeHabitation = $repository->findBy(['usager' => $usager,'archiver' => false ]);
+        $habitation = new habitation();
+        $form = $this->createForm(HabitationUsagerType::class, $habitation);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+
+            $habitation = $form->getData();
+            $habitation->setArchiver(false);
+			$habitation->setUsager($usager);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($habitation);
+            $entityManager->flush();
     
-        return $this->render('habitation/listerHabitation.html.twig', [
-                     'listeHabitation' => $listeHabitation
-        ]);
+            return $this->redirectToRoute("consulterUsager", array("id" => $id));
+		}
+		else
+        {
+            return $this->render('habitation/formHabitationUsager.html.twig', array('formHabitationUsager' => $form->createView(),  "habitation" => $habitation,));
+        }
 
     }
 
