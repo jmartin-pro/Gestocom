@@ -13,14 +13,14 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class CompteModifierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('utilisateur', EntityType::class, array('class' => 'App\Entity\Utilisateur','choice_label' => 'nom', 'disabled'=> true ))
-			->add('enregistrer', SubmitType::class, array('label' => 'Modifier compte'))
+            ->add('login', EmailType::class, array('disabled'=> true))
             ;
     }
 	

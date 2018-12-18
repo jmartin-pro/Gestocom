@@ -113,6 +113,8 @@ abstract class Utilisateur
     public function setArchive(bool $archive): self
     {
         $this->archive = $archive;
+		
+		return $this;
     }
     /**
      * @return Collection|Reponse[]

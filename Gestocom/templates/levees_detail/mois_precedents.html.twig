@@ -17,7 +17,7 @@
 			{% for levee in levees %}
 			{% if levee.container.habitation.usager.id == idUser %}
 			<tr>
-				<td>{% if levee.dateLevee is defined %}<a href="{{ path("leveesDetail", {"month" : levee.dateLevee|date("m"), "year" : levee.dateLevee|date("Y")})}}">{{levee.dateLevee| date('F')}}</a>{% endif %}</td>
+				<td>{% if levee.dateLevee is defined %}<a href="{{ path("leveesDetail", {"month" : levee.dateLevee|date("m"), "year" : levee.dateLevee|date("Y")})}}">{{levee.dateLevee|date('F')}}</a>{% endif %}</td>
 				<td>{% if levee.container.habitation is defined %}{{levee.container.habitation.adresse ~ " " ~ levee.container.habitation.ville}}{% endif %}</td>
 				<td><a href="{{path('leveesPDF', {"month" : levee.dateLevee|date("m"), "year" : levee.dateLevee|date("Y")})}}">Télécharger la facture</a></td>
 			</tr>

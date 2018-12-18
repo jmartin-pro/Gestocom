@@ -4,14 +4,16 @@
 
 {% block body %}
 <div class="row">
-
-		<div class="col-sm">
+	<div class="col-sm">
 
 			{% if user is not null%}
 				<h1>Bienvenue sur Gestocom {{" " ~ user.nom ~ " " ~ user.prenom }}</h1>
 			{% else %}
 				<h1>Bienvenue sur gestocom </h1>
 			{% endif %}
+
+	</div>
+</div>		
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
 		<ol class="carousel-indicators">
@@ -50,7 +52,10 @@
 
 	</div>			
 		</div>
+<div class="row">
+	<div class="col-sm">
 			<p>Gestocom correspond à l'application de SMICTOM. Le SMICTOM est un syndicat d’économie mixte d’organisation de la collecte et du traitement des ordures ménagères, a été créé par arrêté préfectoral du 28 janvier 1980 et se veut être un service public de proximité pour la gestion des déchets ménagers et assimilés.</p>
 	</div>		
-	
+</div>
+
 {% endblock %}

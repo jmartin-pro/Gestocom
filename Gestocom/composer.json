@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "dompdf/dompdf": "^0.8.2",
+        "oro/doctrine-extensions": "^1.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.1.*",
         "symfony/console": "4.1.*",
@@ -13,6 +14,7 @@
         "symfony/form": "4.1.*",
         "symfony/framework-bundle": "4.1.*",
         "symfony/orm-pack": "^1.0",
+        "symfony/routing": "4.1.*",
         "symfony/twig-bundle": "4.1.*",
         "symfony/yaml": "4.1.*"
     },
