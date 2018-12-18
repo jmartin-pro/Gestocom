@@ -178,7 +178,7 @@ modifierUsager:
         id: '\d+'
 
 modifierMonUsager:
-    path: /usager/{id}/modifier
+    path: /monUsager/{id}/modifier
     controller: App\Controller\UsagerController::modifierMonUsager
     requirements:
         id: '\d+'
