@@ -3,25 +3,24 @@
 {% block title %}un Responsable{% endblock %}
 
 {% block body %}
-	<div class="row">
-		<table class="table">
-			<tr><th>Nom : </th><td>{{responsable.nom}}<td></tr>
-			<tr><th>Prenom : </th><td>{{responsable.prenom}}</td>
-			<tr></tr>
-			<tr><th>Login : </th><td>{{responsable.compte.login}} </td></tr>
-			<tr><td><a href="{{ path('reinitMdpCompte', { 'id': responsable.compte.id }) }}">Réinitialiser le mot de passe</a></td></tr>
-			<tr></tr>
-			<tr><th>Archivé :</th>
-				<td>
-					{% if responsable.archive == true %} Oui 
-					{% else %} Non 
-					{% endif %}
-				</td></tr>
-
-
-			<tr><td><a href="{{ path('modifierResponsable', { 'id': responsable.id }) }}">Modifier</a></td></tr>
-
-		</table>
-	<div>
+		<p>
+			Nom : {{responsable.nom}}
+		<br>
+			Prenom : {{responsable.prenom}}
+		</p>
+		
+		<p>	
+			Login : {{responsable.compte.login}} 
+			<br>
+			<a href="{{ path('reinitMdpCompte', { 'id': responsable.compte.id }) }}">Réinitialiser le mot de passe</a>
+		</p>
+		
+		<p>	
+			Archivé : {% if responsable.archive == true %} Oui {% else %} Non {% endif %}
+		</p>
+		
+		<p>
+			<a href="{{ path('modifierResponsable', { 'id': responsable.id }) }}">Modifier</a>
+		</p>
 {% endblock %}
 
