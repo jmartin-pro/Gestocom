@@ -149,6 +149,10 @@ listerUsager:
     path: /usager
     controller: App\Controller\UsagerController::listerUsager
 
+consulterMonUsager:
+    path: /usager/{id}
+    controller: App\Controller\UsagerController::consulterMonUsager
+
 consulterUsager:
     path: /usager/{id}
     controller: App\Controller\UsagerController::consulterUsager
@@ -162,6 +166,12 @@ ajouterUsager:
 modifierUsager:
     path: /usager/{id}/modifier
     controller: App\Controller\UsagerController::modifierUsager
+    requirements:
+        id: '\d+'
+
+modifierMonUsager:
+    path: /usager/{id}/modifier
+    controller: App\Controller\UsagerController::modifierMonUsager
     requirements:
         id: '\d+'
 

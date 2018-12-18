@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+		
+		<h3>Moi</h3>
+
+  <table class="table">
+	<tr><th>Nom : </th><td>{{usager.nom}}<td></tr>
+	<tr><th>Prenom : </th><td>{{usager.prenom}}</td>
+	<tr><th>Adresse : </th><td>{{usager.adresse}}<td></tr>
+	<tr><th>Code Postal : </th><td>{{usager.copos}}</td>
+	<tr><th>Ville : </th><td>{{usager.ville}}<td></tr>
+	<tr><th>Mail : </th><td>{{usager.mail}}</td>
+	<tr><th>Téléphone : </th><td>{{usager.tel}}<td></tr>
+	<tr></tr>
+    <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
+	
+	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier</button></a></td></tr>
+	
+	</table>
+	
+    <tr><td><a href="{{ path('index') }}"><button class="btn btn-primary">Accueil</button></a></td></tr>
+	
+{% endblock %}
