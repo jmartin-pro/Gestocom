@@ -25,13 +25,15 @@
 					<th>Charge utile</th>
 					<th> </th>
 					<th> </th>
+					<th> </th>
 				
 				{% for c in pContainers %}
 				
 				<tr>
-					<td><a href="{{ path('consulterContainer', { 'id': c.id }) }}">{% if c.habitation.usager.nom is defined %}{{c.habitation.usager.nom}} {% endif %} </a></td>
-					<td><a href="{{ path('consulterContainer', { 'id': c.id }) }}">{% if c.habitation.ville is defined %} {{ c.habitation.ville }}{% endif %} </a></td>
+					<td>{% if c.habitation.usager.nom is defined %}{{c.habitation.usager.nom}} {% endif %}</td>
+					<td>{% if c.habitation.ville is defined %} {{ c.habitation.ville }}{% endif %}</td>
 					<td>{% if c.chargeUtile is defined %} {{ c.chargeUtile }}{% endif %} </td>
+					<td><a href="{{ path('consulterContainer', { 'id': c.id }) }}">Détail </a></td>
 					<td><a href="{{ path('modifierContainer', { 'id': c.id }) }}">Modifier</a></td>
 					<td><a href="{{ path('archiverContainer', { 'id': c.id }) }}">Archiver</a></td>
 				</tr>

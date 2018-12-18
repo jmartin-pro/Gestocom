@@ -123,11 +123,6 @@ reinitMdpCompte:
         id: '\d+'
 
 #TypeDechet
-consulterTypeDechet:
-    path: /typeDechet/{id}
-    controller : App\Controller\TypeDechetController::consulterTypeDechet
-    requirements:
-        id: '\d+'
         
 listerTypeDechet:
     path: /typeDechet
