@@ -47,7 +47,7 @@ class UsagerController extends AbstractController
 			return $this->redirectToRoute("consulterUsager", array("id" => $usager->getId()));
 		} 
 		else {
-			return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),));
+			return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),'titre'=> 'Ajouter '));
 		}
 		
 	}
@@ -111,7 +111,7 @@ class UsagerController extends AbstractController
                  return $this->redirectToRoute("consulterUsager", array("id" => $usager->getId()));
            }
            else{
-                return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),));
+                return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),'titre' =>"Modification "));
            }
         }
 	}
