@@ -74,6 +74,17 @@ class ContainerController extends AbstractController
             'pContainers' => $containers,]);
 	}
 	
+	public function containersHabitation($id)
+    {
+		$habitation = $this->getDoctrine()->getRepository(Habitation::class)->findById($id);
+
+        $repository = $this->getDoctrine()->getRepository(Container::class);
+        $listeContainer = $repository->findBy(['habitation' => $habitation,'archive' => false ]);
+    
+        return $this->render('container/lister.html.twig', ['pContainers' => $listeContainer]);
+
+    }
+	
 	public function modifierContainer($id, Request $request){
 
 	//récupération du container dont l'id est passé en paramètre

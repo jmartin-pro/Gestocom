@@ -38,7 +38,11 @@ archiverHabitation:
     controller : App\Controller\HabitationController::archiverHabitation
     requirements:
         id: '\d+'
-        
+containersHabitation:
+    path: /habitation/{id}/container
+    controller : App\Controller\ContainerController::containersHabitation
+    requirements:
+        id: '\d+'
 #Levees
 leveesMois:
     path : /levee
@@ -118,12 +122,6 @@ listerTypeDechet:
     path: /typeDechet
     controller : App\Controller\TypeDechetController::listerTypeDechet
 
-consulterTypeDechet:
-    path: /typeDechet/{id}
-    controller : App\Controller\TypeDechetController::consulterTypeDechet
-    requirements:
-        id: '\d+'
-
 ajouterTypeDechet:
     path: /typeDechet/ajouter
     controller : App\Controller\TypeDechetController::ajouterTypeDechet
@@ -139,6 +137,7 @@ archiverTypeDechet:
     controller : App\Controller\TypeDechetController::archiverTypeDechet
     requirements:
         id: '\d+'
+
 
 # Usager
 listerUsager:
@@ -164,6 +163,39 @@ modifierUsager:
 archiverUsager:
     path: /usager/{id}/archiver
     controller: App\Controller\UsagerController::archiverUsager
+    requirements:
+        id: '\d+'
+
+habitationsUsager:
+    path: /usager/{id}/habitations
+    controller: App\Controller\HabitationController::habitationsUsager
+    requirements:
+        id: '\d+'
+
+#Responsable
+consulterResponsable:
+    path: /responsable/{id}
+    controller: App\Controller\ResponsableController::consulterResponsable
+    requirements:
+        id: '\d+'
+
+listerResponsable:
+    path: /responsable
+    controller: App\Controller\ResponsableController::listerResponsable
+    
+ajouterResponsable:
+    path: /responsable/ajouter
+    controller: App\Controller\ResponsableController::ajouterResponsable
+
+modifierResponsable:
+    path: /responsable/{id}/modifier
+    controller: App\Controller\ResponsableController::modifierResponsable
+    requirements:
+        id: '\d+'
+
+archiverResponsable:
+    path: /responsable/{id}/archiver
+    controller: App\Controller\ResponsableController::archiverResponsable
     requirements:
         id: '\d+'
 

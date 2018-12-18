@@ -1,0 +1,34 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Les Responsables{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm">
+			<h3 class="text-center">Liste des responsable</h3>
+			<a href="{{ path('ajouterResponsable') }}"><button class="btn btn-primary">Ajouter</button></a>
+			<table class="table">
+				<tr>
+					<th>Prénom</th>
+					<th>Nom</th>
+					<th>Date de naissance</th>
+				</tr>
+				{% for responsable in listeResponsable %}
+					<tr>
+						<td> {% if responsable.Prenom is not empty %} {{responsable.Prenom }} {% endif %} </td>
+						<td> {% if responsable.Nom is not empty %} {{responsable.Nom }}  {% endif %} </td>
+						<td> {% if responsable.dateNaiss is not empty %} {{responsable.dateNaiss | date("Y/m/d")}}  {% endif %} </td>
+						<td> <a href="{{ path('consulterResponsable',{'id':responsable.id}) }}" >Détail</a></td>
+						<td> <a href="{{ path('modifierResponsable',{'id':responsable.id}) }}" >Modifier</a></td>
+						<td> <a href="{{ path('archiverResponsable',{'id':responsable.id}) }}" >Supprimer</a></td>
+					</tr>
+
+				{% else %}
+					<tr>
+						<td>Aucun responsable n'a été trouvée.</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>  
+	</div>
+{% endblock %}

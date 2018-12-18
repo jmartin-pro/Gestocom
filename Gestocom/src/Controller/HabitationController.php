@@ -36,7 +36,20 @@ class HabitationController extends AbstractController
     {
 
         $repository = $this->getDoctrine()->getRepository(Habitation::class);
-        $listeHabitation = $repository->findAll();
+        $listeHabitation = $repository->findByArchiver(false);
+    
+        return $this->render('habitation/listerHabitation.html.twig', [
+                     'listeHabitation' => $listeHabitation
+        ]);
+
+    }
+	
+	public function habitationsUsager($id)
+    {
+		$usager = $this->getDoctrine()->getRepository(Usager::class)->findById($id);
+
+        $repository = $this->getDoctrine()->getRepository(Habitation::class);
+        $listeHabitation = $repository->findBy(['usager' => $usager,'archiver' => false ]);
     
         return $this->render('habitation/listerHabitation.html.twig', [
                      'listeHabitation' => $listeHabitation

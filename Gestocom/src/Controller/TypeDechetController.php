@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 
 use App\Form\TypeDechetModifierType;
 use App\Form\TypeDechetType;
+use App\Form\TarifType;
 use App\Entity\TypeDechet;
 use App\Entity\Tarif;
 use App\Repository\TypeDechetRepository;
@@ -20,22 +21,11 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TypeDechetController extends AbstractController
-{
-    public function consulterTypeDechet($id)
-    {
-
-		$repository = $this->getDoctrine()->getRepository(TypeDechet::class);
-		
-		$unTypeDechet = $repository->findOneById($id);
-		return $this->render('type_dechet/consulterTypeDechet.html.twig', [
-            'unTypeDechet' => $unTypeDechet,]);	
-
-    }
-    
+{    
     public function listerTypeDechet()
     {
         $repository = $this->getDoctrine()->getRepository(TypeDechet::class);
-        $listeTypeDechet = $repository->findAll();
+        $listeTypeDechet = $repository->findByArchiver(false);
 
         return $this->render('type_dechet/listerTypeDechet.html.twig', [
                      'listeTypeDechet' => $listeTypeDechet
@@ -55,9 +45,14 @@ class TypeDechetController extends AbstractController
 
             $unTypeDechet = $form->getData();
 			$unTypeDechet->setArchiver(false);
+			$tarif = new Tarif();
+			$tarif->setTypeDechet($unTypeDechet);
+			$tarif->setTarif($form->get('tarif')->getData());
+			$tarif->setDate(new \DateTime("now"));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($unTypeDechet);
+            $entityManager->persist($tarif);
             $entityManager->flush();
             return $this->redirectToRoute("listerTypeDechet");
 
@@ -95,8 +90,15 @@ class TypeDechetController extends AbstractController
                 {
     
                      $unTypeDechet = $form->getData();
+					 
+					 $tarif = new Tarif();
+					 $tarif->setTypeDechet($unTypeDechet);
+					 $tarif->setTarif($form->get('tarif')->getData());
+					 $tarif->setDate(new \DateTime("now"));
+					 
                      $entityManager = $this->getDoctrine()->getManager();
                      $entityManager->persist($listeTypeDechet);
+                     $entityManager->persist($tarif);
                      $entityManager->flush();
                      return $this->redirectToRoute("listerTypeDechet");
 
