@@ -60,7 +60,13 @@
 							<a class="nav-link" href="{{ path('listerUsager') }}">Les usagers</a>
 						</li>
 						{# Liens pour l'usager #}
+						
 						{% elseif user.disc == "usager" %}
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('consulterMonUsager',{'id':user.id}) }}">{{" " ~ user.nom ~ " " ~ user.prenom }}</a>
+						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('leveesMois') }}">Mes levées</a>
 						</li>	
@@ -68,7 +74,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('listerReclamations') }}">Mes réclamations</a>
 						</li>	
-						
+					
 						{% endif %}
 						
 						<li class="nav-item">

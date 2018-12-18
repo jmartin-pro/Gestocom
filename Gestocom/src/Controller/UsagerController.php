@@ -77,6 +77,26 @@ class UsagerController extends AbstractController
 		return $this->render('usager/lister.html.twig', [
             'pUsagers' => $usagers,]);
 	}
+
+	public function consulterMonUsager($id, Request $request) {
+		$user = $request->getSession()->get("user");
+		if ($user == null) {
+			return $this->redirectToRoute("index");
+		}
+
+		$repository = $this->getDoctrine()->getRepository(Usager::class);
+		
+		//Si l'utilisateur est un Usager on recupere uniquement ses reclamations sinon si on est responsable on les recuperes toutes
+		if ($user instanceof Usager) {
+			$monUsager = $repository->findOneById($id);
+		} else if ($user instanceof Responsable) {
+			$monUsager = $repository->findAll();
+		}
+
+
+		return $this->render('usager/consulterMonUsager.html.twig', [
+					'usager' => $monUsager]);
+	}
 	
 	public function modifierUsager($id, Request $request){
 
