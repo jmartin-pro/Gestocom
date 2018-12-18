@@ -14,23 +14,39 @@
 	<tr><th>Mail : </th><td>{{usager.mail}}</td>
 	<tr><th>Téléphone : </th><td>{{usager.tel}}<td></tr>
 	<tr></tr>
-    <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
-	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></td></tr>
-	<tr></tr>
 	<tr><th>Archivé :</th>
 	<td>
 	{% if usager.archive == true %} Oui 
 	{% else %} Non 
 	{% endif %}
 	</td></tr>
-	
-	<tr><td><a href="{{ path('habitationsUsager', { 'id': usager.id }) }}">Liste des habitations</a></td></tr>
+    <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
+	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></td></tr>
+	<tr></tr>
 	
 	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier</button></a></td></tr>
 	
 	</table>
 	
+	<br>
+	<a href="{{ path('ajouterHabitationUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Ajouter une habitation</button></a>
+	<br>
 	
-	<a href="{{ path('listerUsager') }}">Retour à la liste des usagers</a>
+	<table class="table">
+		<tr></tr>
+		<tr><th>Liste des habitations</th></tr>
+		{% for h in usager.habitations %}
+			<tr><td><a href="{{ path('consulterHabitation',{'id':h.id}) }}" >{{h.adresse}} {{h.copos}} {{h.ville}}</a></td></tr>
+		{% else %}
+			<tr>
+				<td>Aucune habitation n'a été trouvée.</td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+	<br>
+	<br>
+	
+	<a href="{{ path('listerUsager') }}">Retour à la liste des usagers</a><br>
 	
 {% endblock %}
