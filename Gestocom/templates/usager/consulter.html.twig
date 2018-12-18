@@ -3,34 +3,29 @@
 
 {% block body %}
 		
-		<h3>L'usager</h3>
+		<h3 class="text-center">L'usager</h3>
 
-  <table class="table">
-	<tr><th>Nom : </th><td>{{usager.nom}}<td></tr>
-	<tr><th>Prenom : </th><td>{{usager.prenom}}</td>
-	<tr><th>Adresse : </th><td>{{usager.adresse}}<td></tr>
-	<tr><th>Code Postal : </th><td>{{usager.copos}}</td>
-	<tr><th>Ville : </th><td>{{usager.ville}}<td></tr>
-	<tr><th>Mail : </th><td>{{usager.mail}}</td>
-	<tr><th>Téléphone : </th><td>{{usager.tel}}<td></tr>
-	<tr></tr>
-    <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
-	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></td></tr>
-	<tr></tr>
-	<tr><th>Archivé :</th>
-	<td>
+  <p>Nom : {{usager.nom}}<br/>
+	Prenom : {{usager.prenom}}<br/>
+	Adresse : {{usager.adresse}}<br/>
+	Code Postal : {{usager.copos}}<br/>
+	Ville : {{usager.ville}}<br/>
+	Mail : {{usager.mail}}<br/>
+	Téléphone : {{usager.tel}}<br/>
+	
+    Login : {{usager.compte.login}} <br/>
+    </p>
+	<p><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></p>
+
+	<p>Archivé :
+	
 	{% if usager.archive == true %} Oui 
 	{% else %} Non 
-	{% endif %}
-	</td></tr>
-	
-	<tr><td><a href="{{ path('habitationsUsager', { 'id': usager.id }) }}">Liste des habitations</a></td></tr>
-	
-	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier</button></a></td></tr>
-	
-	</table>
+	{% endif %}</p>
 	
 	
-	<a href="{{ path('listerUsager') }}">Retour à la liste des usagers</a>
+	<p><a href="{{ path('habitationsUsager', { 'id': usager.id }) }}">Liste des habitations</a></p>
+		
+	<p><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier</button></a></p>
 	
 {% endblock %}
