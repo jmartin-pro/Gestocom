@@ -25,7 +25,6 @@ class UsagerModifierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class, array('disabled'=> true))
             ->add('compte', CompteModifierType::class)
 			->add('enregistrer', SubmitType::class, array('label' => 'Modifier Usager'))
 		;
