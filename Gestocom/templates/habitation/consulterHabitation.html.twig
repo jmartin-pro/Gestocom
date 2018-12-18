@@ -25,8 +25,40 @@
 				<th>Numéro de téléphone</th>
 				<td>{{habitation.usager.tel}}</td>
 			</tr>
-			<tr><td><a href="{{ path('containersHabitation', { 'id': habitation.id }) }}">Liste des containers</a></td></tr>
+			<tr>
+				<th>Archivé :</th>
+				<td>
+				{% if habitation.archiver == true %} Oui 
+				{% else %} Non 
+				{% endif %}
+				</td>
+			</tr>
+			<tr><td><a href="{{ path('modifierHabitation', { 'id': habitation.id }) }}"><button class="btn btn-primary">Modifier</button></a></td></tr>
+	
 		</table>
+		
+		<br>
+		<a href="{{ path('ajouterContainerHabitation', { 'id': habitation.id }) }}"><button class="btn btn-primary">Ajouter un conteneur</button></a>
+		<br>
+		
+		<table class="table">
+			<tr></tr>
+			<tr><th>Liste des conteneurs</th><td>Volume</td><td>Poids Brut</td><td>Charge Utile</td></tr>
+			{% for c in habitation.containers %}
+				<tr><td><a href="{{ path('consulterContainer',{'id':c.id}) }}" >Consulter le conteneur</a></td><td>{{c.volume}}</td><td>{{c.poidsBrut}}</td><td>{{c.chargeUtile}}</td></tr>
+			{% else %}
+				<tr>
+					<td>Aucun conteneur n'a été trouvé.</td>
+				</tr>
+			{% endfor %}
+		</table>
+	
+		<br>
+		<br>
+		<a href="{{ path('consulterUsager',{'id':habitation.usager.id}) }}" >Retour à l'usager {{habitation.usager.nom}} {{habitation.usager.prenom}}</a>
+		<br>
+		<br>
+		<a href="{{ path('listerHabitation') }}">Retour à la liste des habitations</a><br>
 	</div>
 </div>
 

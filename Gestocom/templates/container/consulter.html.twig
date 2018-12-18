@@ -19,6 +19,11 @@
 	
 	</table>
 	
+	<br>
+	<br>
+	<a href="{{ path('consulterHabitation',{'id':container.habitation.id}) }}" >Retour à l'habitation {{container.habitation.adresse}} {{container.habitation.copos}} {{container.habitation.ville}}</a>
+	<br>
+	<br>
 	<a href="{{ path('listerContainer') }}">Retour à la liste des conteneurs</a>
 	
 {% endblock %}

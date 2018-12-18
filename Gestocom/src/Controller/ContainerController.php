@@ -15,6 +15,7 @@ use App\Entity\Tarif;
 use App\Form\ContainerType;
 use App\Form\ContainerModifierType;
 use App\Form\ContainerArchiverType;
+use App\Form\ContainerHabitationType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -74,15 +75,30 @@ class ContainerController extends AbstractController
             'pContainers' => $containers,]);
 	}
 	
-	public function containersHabitation($id)
+	public function ajouterContainerHabitation($id, Request $request)
     {
-		$habitation = $this->getDoctrine()->getRepository(Habitation::class)->findById($id);
+		$habitation = $this->getDoctrine()->getRepository(Habitation::class)->find($id);
 
-        $repository = $this->getDoctrine()->getRepository(Container::class);
-        $listeContainer = $repository->findBy(['habitation' => $habitation,'archive' => false ]);
+        $container = new container();
+        $form = $this->createForm(ContainerHabitationType::class, $container);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+
+            $container = $form->getData();
+            $container->setArchive(false);
+			$container->setHabitation($habitation);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($container);
+            $entityManager->flush();
     
-        return $this->render('container/lister.html.twig', ['pContainers' => $listeContainer]);
-
+            return $this->redirectToRoute("consulterHabitation", array("id" => $id));
+		}
+		else
+        {
+            return $this->render('container/ajouter.html.twig', array('form' => $form->createView(),  "container" => $container, 'titre'=>'Ajouter ',));
+        }
     }
 	
 	public function modifierContainer($id, Request $request){
