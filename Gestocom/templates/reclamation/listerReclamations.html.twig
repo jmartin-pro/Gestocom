@@ -11,7 +11,9 @@
         {% endif %}
 		<table class="table">
             <tr>
-	            <th>Usager</th>
+				{%if app.session.get("user") is instanceof("App\\Entity\\Responsable")%}
+					<th>Usager</th>
+				{%endif%}
 	            <th>Objet</th>
 	            <th>Etat</th>
 	            <th>Date Ouverture</th>
@@ -20,7 +22,9 @@
 	        </tr>
 			{% for reclamation in listeReclamation %}
 			<tr>
-				<td> {% if reclamation.usager is not empty %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
+				{%if app.session.get("user") is instanceof("App\\Entity\\Responsable")%}
+					<td> {% if reclamation.usager is not empty %} {{reclamation.usager.nom ~" " ~ reclamation.usager.prenom}}  {% endif %} </td>
+				{%endif%}
 				<td> {% if reclamation.objet is not empty %} {{reclamation.objet }}  {% endif %} </td>
                 <td> {% if reclamation.etat is not empty %} {{reclamation.etat.libelle }} {% endif %} </td>
 				<td> {% if reclamation.dateOuv is not empty %} {{reclamation.dateOuv | date("Y/m/d h:i:s")}}  {% endif %} </td>
