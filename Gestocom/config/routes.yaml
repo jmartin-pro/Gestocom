@@ -38,7 +38,11 @@ archiverHabitation:
     controller : App\Controller\HabitationController::archiverHabitation
     requirements:
         id: '\d+'
-        
+containersHabitation:
+    path: /habitation/{id}/container
+    controller : App\Controller\ContainerController::containersHabitation
+    requirements:
+        id: '\d+'
 #Levees
 leveesMois:
     path : /levee
@@ -118,12 +122,6 @@ listerTypeDechet:
     path: /typeDechet
     controller : App\Controller\TypeDechetController::listerTypeDechet
 
-consulterTypeDechet:
-    path: /typeDechet/{id}
-    controller : App\Controller\TypeDechetController::consulterTypeDechet
-    requirements:
-        id: '\d+'
-
 ajouterTypeDechet:
     path: /typeDechet/ajouter
     controller : App\Controller\TypeDechetController::ajouterTypeDechet
@@ -139,6 +137,7 @@ archiverTypeDechet:
     controller : App\Controller\TypeDechetController::archiverTypeDechet
     requirements:
         id: '\d+'
+
 
 # Usager
 listerUsager:
@@ -167,6 +166,12 @@ archiverUsager:
     requirements:
         id: '\d+'
 
+habitationsUsager:
+    path: /usager/{id}/habitations
+    controller: App\Controller\HabitationController::habitationsUsager
+    requirements:
+        id: '\d+'
+        
 # Container (conteneurs en français)
 listerContainer:
     path: /container

@@ -15,7 +15,7 @@
 	<tr><th>Téléphone : </th><td>{{usager.tel}}<td></tr>
 	<tr></tr>
     <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
-	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}">Réinitialiser le mot de passe</a></td></tr>
+	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></td></tr>
 	<tr></tr>
 	<tr><th>Archivé :</th>
 	<td>
@@ -24,8 +24,9 @@
 	{% endif %}
 	</td></tr>
 	
+	<tr><td><a href="{{ path('habitationsUsager', { 'id': usager.id }) }}">Liste des habitations</a></td></tr>
 	
-	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}">Modifier</a></td></tr>
+	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier</button></a></td></tr>
 	
 	</table>
 	

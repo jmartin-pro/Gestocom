@@ -30,6 +30,7 @@ class TypeDechet
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Tarif", mappedBy="typeDechet")
+    
      */
     private $tarifs;
 
