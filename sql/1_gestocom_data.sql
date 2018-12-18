@@ -207,7 +207,9 @@ INSERT INTO `etat` (`id`, `libelle`) VALUES
 INSERT INTO `type_dechet` (`id`, `libelle`, `archiver`) VALUES
 (1, 'déchets classiques', 0),
 (2, 'déchets recyclables', 0),
-(3, 'déchets en verre', 0);
+(3, 'déchets en verre', 0),
+(4, 'Textile', 0),
+(5, 'Bois', 0);
 
 --
 -- Déchargement des données de la table `tarif`
@@ -216,7 +218,12 @@ INSERT INTO `type_dechet` (`id`, `libelle`, `archiver`) VALUES
 INSERT INTO `tarif` (`id`, `type_dechet_id`, `date`, `tarif`) VALUES
 (1, 1, '2018-01-01 00:00:00', 0.1508),
 (2, 2, '2018-01-01 00:00:00', 0.0802),
-(3, 3, '2018-01-01 00:00:00', 0.0614);
+(3, 3, '2018-01-01 00:00:00', 0.0614),
+(5, 1, '2018-12-18 09:21:46', 5),
+(6, 2, '2018-12-18 09:21:50', 7),
+(7, 1, '2018-12-18 09:26:54', 0.225),
+(8, 4, '2018-12-18 09:27:14', 0.12),
+(9, 5, '2018-12-18 09:27:28', 1.134);
 
 --
 -- Déchargement des données de la table `habitation`

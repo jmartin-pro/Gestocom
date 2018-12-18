@@ -95,7 +95,7 @@ class UsagerController extends AbstractController
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                 $usager = $form->getData();
+                $usager = $form->getData();
 				 
 				$usager->setMail($usager->getCompte()->getLogin());
 				
