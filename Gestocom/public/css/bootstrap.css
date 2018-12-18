@@ -5807,14 +5807,14 @@ button.close {
   padding: 0.5rem 0.75rem;
   color: #212529;
 }
-
+  
 .carousel {
   position: relative;
 }
 
 .carousel-inner {
   position: relative;
-  width: 100%;
+  width: 70%;
   overflow: hidden;
 }
 
@@ -5823,7 +5823,7 @@ button.close {
   display: none;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

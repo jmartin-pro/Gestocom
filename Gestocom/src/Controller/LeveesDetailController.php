@@ -81,7 +81,7 @@ class LeveesDetailController extends AbstractController {
 		$dompdf = new Dompdf($options);		
 		$dompdf->loadHtml($html);
 		$dompdf->setPaper('A4', 'portrait');
-		$dompdf->setBasePath(substr($_SERVER['DOCUMENT_ROOT'], 0, -1));
+		$dompdf->setBasePath($_SERVER['DOCUMENT_ROOT']."/");
 		$dompdf->render();
 		$dompdf->stream($name);
 		

@@ -7,12 +7,14 @@
 		
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/google_font.css") }}"/>
+		<link rel="shortcut icon" type="image/png" href="{{ asset("favicon.png") }}"/>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		{% block stylesheets %}{% endblock %}
     </head>
 	
     <body>
+		
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="{{ path('index') }}">
 				<img src="{{ asset("img/icon.png") }}" width="32" height="46" alt="">
@@ -56,6 +58,10 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('listerUsager') }}">Les usagers</a>
 					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('listerResponsable') }}">Les responsables</a>
+					</li>
 					{# Liens pour l'usager #}
 					{% elseif user.disc == "usager" %}
 					<li class="nav-item">
@@ -79,10 +85,28 @@
 			{% block body %}{% endblock %}
 		</div>
 		
+<footer class="page-footer font-small bg-light pt-4 fixed-bottom">
+	<div class="container text-center text-md-left">
+		<div class="row">
+			<div class="col-md-6 mt-md-0 mt-3">
+				<ul class="list-unstyled">
+					<li>
+						<a href="{{ path("mentionsLegales") }}">Mentions légales</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+    <div class="footer-copyright text-center py-3">©{{"now"|date("Y")}} Copyright</div>
+
+  </footer>
+		
         {% block javascripts %}{% endblock %}
 		<script type="text/javascript" src="{{ asset("js/popper.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/jquery-3.2.1.slim.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/bootstrap.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("js/bootstrap.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/tableSort.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("js/jquery.sortElements.js") }}"></script>
     </body>

@@ -171,7 +171,34 @@ habitationsUsager:
     controller: App\Controller\HabitationController::habitationsUsager
     requirements:
         id: '\d+'
-        
+
+#Responsable
+consulterResponsable:
+    path: /responsable/{id}
+    controller: App\Controller\ResponsableController::consulterResponsable
+    requirements:
+        id: '\d+'
+
+listerResponsable:
+    path: /responsable
+    controller: App\Controller\ResponsableController::listerResponsable
+    
+ajouterResponsable:
+    path: /responsable/ajouter
+    controller: App\Controller\ResponsableController::ajouterResponsable
+
+modifierResponsable:
+    path: /responsable/{id}/modifier
+    controller: App\Controller\ResponsableController::modifierResponsable
+    requirements:
+        id: '\d+'
+
+archiverResponsable:
+    path: /responsable/{id}/archiver
+    controller: App\Controller\ResponsableController::archiverResponsable
+    requirements:
+        id: '\d+'
+
 # Container (conteneurs en français)
 listerContainer:
     path: /container
