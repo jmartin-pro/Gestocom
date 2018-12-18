@@ -43,9 +43,9 @@ archiverHabitation:
     controller : App\Controller\HabitationController::archiverHabitation
     requirements:
         id: '\d+'
-containersHabitation:
-    path: /habitation/{id}/container
-    controller : App\Controller\ContainerController::containersHabitation
+ajouterContainerHabitation:
+    path: /habitation/{id}/container/ajouter
+    controller : App\Controller\ContainerController::ajouterContainerHabitation
     requirements:
         id: '\d+'
 #Levees
@@ -189,9 +189,9 @@ archiverUsager:
     requirements:
         id: '\d+'
 
-habitationsUsager:
-    path: /usager/{id}/habitations
-    controller: App\Controller\HabitationController::habitationsUsager
+ajouterHabitationUsager:
+    path: /usager/{id}/habitation/ajouter
+    controller: App\Controller\HabitationController::ajouterHabitationUsager
     requirements:
         id: '\d+'
 
