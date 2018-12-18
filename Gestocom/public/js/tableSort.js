@@ -39,6 +39,7 @@ $('th')
             
             $(this).text($(this).text() + ((inverse) ? "▲" : "▼"));
             lastTh = $(this);
+            updateVisibleRows();
 
         });
 
