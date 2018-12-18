@@ -21,6 +21,15 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TypeDechetController extends AbstractController
 {    
+    public function consulterTypedechet($id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(Typedechet::class);
+        $unTypedechet = $repository->findOneById($id);
+        return $this->render('type_dechet/consulterTypedechet.html.twig', [
+            'typeDechet' => $unTypedechet]);
+    }
+
     public function listerTypeDechet()
     {
         $repository = $this->getDoctrine()->getRepository(TypeDechet::class);
