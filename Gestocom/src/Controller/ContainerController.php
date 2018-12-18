@@ -156,7 +156,7 @@ class ContainerController extends AbstractController
 				return $this->redirectToRoute("consulterContainer", array("id" => $container->getId()));
            }
            else{
-                return $this->render('container/ajouter.html.twig', array('form' => $form->createView(),));
+                return $this->render('container/ajouter.html.twig', array('form' => $form->createView(),'titre'=>'Archive '));
            }
         }
 	}
