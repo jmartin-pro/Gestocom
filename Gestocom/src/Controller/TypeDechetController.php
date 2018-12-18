@@ -10,7 +10,6 @@ use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 
 use App\Form\TypeDechetModifierType;
 use App\Form\TypeDechetType;
-use App\Form\TarifType;
 use App\Entity\TypeDechet;
 use App\Entity\Tarif;
 use App\Repository\TypeDechetRepository;
@@ -55,15 +54,10 @@ class TypeDechetController extends AbstractController
             $entityManager->persist($tarif);
             $entityManager->flush();
             return $this->redirectToRoute("listerTypeDechet");
-
-
         }
-
         else
         {
-
             return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(),  "listeTypeDechet" => $typeDechet,));
-
         }
     }
 
@@ -76,40 +70,33 @@ class TypeDechetController extends AbstractController
     
         if (!$listeTypeDechet) 
         {
-
             throw $this->createNotFoundException('Aucun type de déchet trouvé avec le numéro '.$id);
-
         }
         else
         {
-
-                $form = $this->createForm(TypeDechetModifierType::class, $listeTypeDechet);
-                $form->handleRequest($request);
+            $form = $this->createForm(TypeDechetModifierType::class, $listeTypeDechet);
+            $form->handleRequest($request);
     
-                if ($form->isSubmitted() && $form->isValid())
-                {
-    
-                     $unTypeDechet = $form->getData();
-					 
-					 $tarif = new Tarif();
-					 $tarif->setTypeDechet($unTypeDechet);
-					 $tarif->setTarif($form->get('tarif')->getData());
-					 $tarif->setDate(new \DateTime("now"));
-					 
-                     $entityManager = $this->getDoctrine()->getManager();
-                     $entityManager->persist($listeTypeDechet);
-                     $entityManager->persist($tarif);
-                     $entityManager->flush();
-                     return $this->redirectToRoute("listerTypeDechet");
-
+            if ($form->isSubmitted() && $form->isValid())
+            {
+				$unTypeDechet = $form->getData();
+				
+				$tarif = new Tarif();
+				$tarif->setTypeDechet($unTypeDechet);
+				$tarif->setTarif($form->get('tarif')->getData());
+				$tarif->setDate(new \DateTime("now"));
+				
+				$entityManager = $this->getDoctrine()->getManager();
+				$entityManager->persist($listeTypeDechet);
+				$entityManager->persist($tarif);
+				$entityManager->flush();
+				return $this->redirectToRoute("listerTypeDechet");
                }
                else
                {
-
                     return $this->render('type_dechet/formTypeDechet.html.twig', array('formTypeDechet' => $form->createView(), "listeTypeDechet" => $listeTypeDechet,));
-                    
                }
-            }
+        }
      }
 
     public function archiverTypeDechet($id)
