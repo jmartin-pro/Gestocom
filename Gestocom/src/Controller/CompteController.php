@@ -115,22 +115,14 @@ class CompteController extends AbstractController
 		}
 		else
 		{
-            $form = $this->createForm(CompteReinitMdpType::class, $compte);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-
-                 $compte = $form->getData();
 				$mdp = hash("sha256", "test");
 				$compte->setMdp($mdp);
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($compte);
                  $entityManager->flush();
-                 return $this->render('compte/consulter.html.twig', ['compte' => $compte,]);
-           }
-           else{
-                return $this->render('compte/ajouter.html.twig', array('form' => $form->createView(),));
-           }
+                 return $this->render('usager/consulter.html.twig', ['usager' => $compte->getUtilisateur(),]);
+           
+           
         }
 	}
 	
@@ -146,13 +138,7 @@ class CompteController extends AbstractController
 		}
 		else
 		{
-            $form = $this->createForm(CompteArchiverType::class, $compte);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-
-                 $compte = $form->getData();
-				 
+            
 				 $compte->setArchive(true);
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($compte);
@@ -160,10 +146,7 @@ class CompteController extends AbstractController
 				 $repository = $this->getDoctrine()->getRepository(Compte::class);
 				$comptes = $repository->findAll();
 				return $this->render('compte/lister.html.twig', ['pComptes' => $comptes,]);
-           }
-           else{
-                return $this->render('compte/ajouter.html.twig', array('form' => $form->createView(),));
-           }
+           
         }
 	}
 }

@@ -5,6 +5,10 @@ namespace App\Form;
 use App\Entity\Usager;
 use App\Entity\Utilisateur;
 use App\Entity\Compte;
+
+use App\Form\CompteType;
+use App\Form\CompteModifierType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class UsagerModifierType extends AbstractType
 {
@@ -21,7 +26,7 @@ class UsagerModifierType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, array('disabled'=> true))
-            ->add('compte', EntityType::class, array('class' => 'App\Entity\Compte','choice_label' => 'login', 'disabled'=> true))
+            ->add('compte', CompteModifierType::class)
 			->add('enregistrer', SubmitType::class, array('label' => 'Modifier Usager'))
 		;
     }

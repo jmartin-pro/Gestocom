@@ -15,6 +15,7 @@
 	<tr><th>Téléphone : </th><td>{{usager.tel}}<td></tr>
 	<tr></tr>
     <tr><th>Login : </th><td>{{usager.compte.login}} </td></tr>
+	<tr><td><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}">Réinitialiser le mot de passe</a></td></tr>
 	<tr></tr>
 	<tr><th>Archivé :</th>
 	<td>
@@ -22,6 +23,7 @@
 	{% else %} Non 
 	{% endif %}
 	</td></tr>
+	
 	
 	<tr><td><a href="{{ path('modifierUsager', { 'id': usager.id }) }}">Modifier</a></td></tr>
 	

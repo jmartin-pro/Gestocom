@@ -32,6 +32,13 @@ class UsagerController extends AbstractController
 
 			$usager = $form->getData();
 			$usager->setArchive(false);
+			$usager->setMail($usager->getCompte()->getLogin());
+			
+			$compte = $usager->getCompte();
+			$mdp = hash("sha256", $compte->getMdp());
+			$compte->setMdp($mdp);
+			$compte->setArchive(false);
+			$usager->setCompte($compte);
 
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager->persist($usager);
@@ -89,6 +96,15 @@ class UsagerController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
 
                  $usager = $form->getData();
+				 
+				$usager->setMail($usager->getCompte()->getLogin());
+				
+				$compte = $usager->getCompte();
+				$mdp = hash("sha256", $compte->getMdp());
+				$compte->setMdp($mdp);
+				$compte->setArchive(false);
+				$usager->setCompte($compte);
+				 
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($usager);
                  $entityManager->flush();
@@ -112,22 +128,16 @@ class UsagerController extends AbstractController
 		}
 		else
 		{
-            $form = $this->createForm(UsagerArchiverType::class, $usager);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-
-                 $usager = $form->getData();
+				 
+				$compte = $usager->getCompte();
+				$compte->setArchive(true);
+				$usager->setCompte($compte);
 				 
 				 $usager->setArchive(true);
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($usager);
                  $entityManager->flush();
 				return $this->redirectToRoute("consulterUsager", array("id" => $usager->getId()));
-           }
-           else{
-                return $this->render('usager/ajouter.html.twig', array('form' => $form->createView(),));
-           }
         }
 	}
 }
