@@ -12,6 +12,11 @@ deconnexion:
     path: /deconnexion
     controller: App\Controller\AuthentificationController::deconnexionAction
 
+#Contact
+contact:
+    path: /contact
+    controller: App\Controller\ContactController::pageContact
+
 #Habitations
 listerHabitation:
     path: /habitation
@@ -144,6 +149,10 @@ listerUsager:
     path: /usager
     controller: App\Controller\UsagerController::listerUsager
 
+consulterMonUsager:
+    path: /usager/{id}
+    controller: App\Controller\UsagerController::consulterMonUsager
+
 consulterUsager:
     path: /usager/{id}
     controller: App\Controller\UsagerController::consulterUsager
@@ -157,6 +166,12 @@ ajouterUsager:
 modifierUsager:
     path: /usager/{id}/modifier
     controller: App\Controller\UsagerController::modifierUsager
+    requirements:
+        id: '\d+'
+
+modifierMonUsager:
+    path: /usager/{id}/modifier
+    controller: App\Controller\UsagerController::modifierMonUsager
     requirements:
         id: '\d+'
 

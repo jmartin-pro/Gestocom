@@ -2,12 +2,7 @@
 
 {% block body %}
 
-{% if container is not defined %}
-<h1> Ajout d'un container</h1>
-{% else %}
-<h1> Modification des informations du container</h1>
-{% endif %}
-
+<h1>{{titre}}d'un container</h1>
 
 {# templates/container/ajouter.html.twig #}
 {{ form_start(form) }}
