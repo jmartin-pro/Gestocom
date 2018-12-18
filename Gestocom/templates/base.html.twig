@@ -7,6 +7,7 @@
 		
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="{{ asset("css/google_font.css") }}"/>
+		<link type="text/css" rel="stylesheet" href="{{ asset("css/gestocom.css") }}"/>
 		<link rel="shortcut icon" type="image/png" href="{{ asset("favicon.png") }}"/>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,93 +15,99 @@
     </head>
 	
     <body>
-		
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="{{ path('index') }}">
-				<img src="{{ asset("img/icon.png") }}" width="32" height="46" alt="">
-			</a>
-			
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item active">
-						<a class="nav-link" href="{{ path('index') }}">Accueil <span class="sr-only">(current)</span></a>
-					</li>		
+		<main>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="{{ path('index') }}">
+					<img src="{{ asset("img/icon.png") }}" width="32" height="46" alt="">
+				</a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('index') }}">Accueil <span class="sr-only">(current)</span></a>
+						</li>				
 					
-					{% if user is null %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
-					</li>
-					{% else %}
-					{# Liens commun à tous les utilisateurs #}
-					
-					
-					{# Liens pour le responsable #}
-					{% if user.disc == "responsable" %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerHabitation') }}">Les habitations</a>
-					</li>
+						{% if user is null %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('connexion') }}">Connexion</a>
+						</li>
+						{% else %}
+						{# Liens commun à tous les utilisateurs #}
 						
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerReclamations') }}">Les réclamations</a>
-					</li>
+						
+						{# Liens pour le responsable #}
+						{% if user.disc == "responsable" %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerHabitation') }}">Les habitations</a>
+						</li>
+							
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerReclamations') }}">Les réclamations</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerTypeDechet') }}">Les types de déchets</a>
-					</li>	
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerContainer') }}">Les conteneurs</a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerUsager') }}">Les usagers</a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerResponsable') }}">Les responsables</a>
-					</li>
-					{# Liens pour l'usager #}
-					{% elseif user.disc == "usager" %}
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('leveesMois') }}">Mes levées</a>
-					</li>	
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('listerReclamations') }}">Mes réclamations</a>
-					</li>	
-					
-					{% endif %}
-					
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
-					</li>
-					{% endif %}
-				</ul>
-			</div>
-		</nav>
-		<div class="container">
-			{% block body %}{% endblock %}
-		</div>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerTypeDechet') }}">Les types de déchets</a>
+						</li>	
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerContainer') }}">Les conteneurs</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerUsager') }}">Les usagers</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerResponsable') }}">Les responsables</a>
+						</li>
+						
+						{# Liens pour l'usager #}
+						{% elseif user.disc == "usager" %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('leveesMois') }}">Mes levées</a>
+						</li>	
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('listerReclamations') }}">Mes réclamations</a>
+						</li>	
+						
+						{% endif %}
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+			</nav>
 		
-<footer class="page-footer font-small bg-light pt-4 fixed-bottom">
-	<div class="container text-center text-md-left">
-		<div class="row">
-			<div class="col-md-6 mt-md-0 mt-3">
-				<ul class="list-unstyled">
-					<li>
-						<a href="{{ path("mentionsLegales") }}">Mentions légales</a>
-					</li>
-				</ul>
+			<div class="container">
+				{% block body %}{% endblock %}
 			</div>
-		</div>
-	</div>
+		</main>
+		
+		<footer class="page-footer font-small bg-light pt-4">
+			<div class="container text-center text-md-left">
+				<div class="row">
+					<div class="col-md-6 mt-md-0 mt-3">
+						<ul class="list-unstyled">
+							<li>
+								<a href="{{ path("mentionsLegales") }}">Mentions légales</a>
+							</li>
+							<li>
+								<a href="{{ path("contact") }}">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-    <div class="footer-copyright text-center py-3">©{{"now"|date("Y")}} Copyright</div>
+			<div class="footer-copyright text-center py-3">©{{"now"|date("Y")}} Copyright</div>
 
-  </footer>
+		</footer>
 		
         {% block javascripts %}{% endblock %}
 		<script type="text/javascript" src="{{ asset("js/popper.min.js") }}"></script>

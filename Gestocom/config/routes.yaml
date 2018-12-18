@@ -12,6 +12,11 @@ deconnexion:
     path: /deconnexion
     controller: App\Controller\AuthentificationController::deconnexionAction
 
+#Contact
+contact:
+    path: /contact
+    controller: App\Controller\ContactController::pageContact
+
 #Habitations
 listerHabitation:
     path: /habitation
