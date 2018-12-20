@@ -17,22 +17,23 @@ function generatePaginationNav() {
 	$(navHtml).insertAfter(table);
 	
 	$(".paginationNumber").click(function() {
-		selectedItemValue = $(this).text()-1;
-		updateVisibleRows();
+		updateVisibleRows($(this).text()-1);
 	});
 	
 	$(".paginationBefore").click(function() {
-		selectedItemValue = Math.max(0, selectedItemValue-1);
-		updateVisibleRows();
+		updateVisibleRows(Math.max(0, selectedItemValue-1));
 	});
 	
 	$(".paginationAfter").click(function() {
-		selectedItemValue = Math.min($("table tr").length / maxItems -1, selectedItemValue+1);
-		updateVisibleRows();
+		updateVisibleRows(Math.min(parseInt($("table tr").length / maxItems), selectedItemValue+1));
 	});
 }
 
-function updateVisibleRows() {
+function updateVisibleRows(selectedItem = 0) {
+	$(".pagination li").eq(selectedItemValue + 1).removeClass("disabled");
+	selectedItemValue =  selectedItem;
+	$(".pagination li").eq(selectedItemValue + 1).addClass("disabled");
+
 	$("table tr").each(function(index) {
 		if(index == 0)
 			return;
