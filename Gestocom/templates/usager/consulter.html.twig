@@ -20,7 +20,8 @@
 	{% endif %}</p>
 
     <p>Login : {{usager.compte.login}} </p>
-	<p><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary">Réinitialiser le mot de passe</button></a></p>
+	<p><a href="{{ path('reinitMdpCompte', { 'id': usager.compte.id }) }}"><button class="btn btn-primary" onclick="reinitMdpCompte();return false" >Réinitialiser le mot de passe</button></a></p>
+	<p id="demo"></p>
 	<p><a href="{{ path('modifierUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Modifier l'usager</button></a></p>
 	<p><a href="{{ path('ajouterHabitationUsager', { 'id': usager.id }) }}"><button class="btn btn-primary">Ajouter une habitation</button></a></p>
 		
